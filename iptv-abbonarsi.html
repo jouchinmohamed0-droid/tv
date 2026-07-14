@@ -4,6 +4,7 @@
      Language: Italian | Country: Italy
      ============================================================ -->
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg-primary:#f7f8f3;--bg-secondary:#edf1e6;--bg-card:#ffffff;--bg-card-hover:#f2f6ec;--accent:#c8102e;--accent-hover:#a00d25;--accent-light:#d63651;--accent-soft:rgba(200,16,46,0.08);--gold:#d4a017;--green:#009246;--text-primary:#1a1a2e;--text-secondary:#3d4a3e;--text-muted:#7a8c6e;--border:rgba(200,16,46,0.10);--border-accent:rgba(200,16,46,0.22);--radius:14px;--radius-lg:22px;--shadow:0 4px 28px rgba(200,16,46,0.09);--shadow-lg:0 12px 48px rgba(200,16,46,0.14);--shadow-accent:0 6px 32px rgba(200,16,46,0.22);--pink:#9e1b32;--pink-soft:rgba(158,27,50,0.08);--pink-border:rgba(158,27,50,0.22)}
 html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
@@ -532,10 +533,6 @@ button,a,[role="button"]{touch-action:manipulation}
 .cdw-label{width:100%;text-align:center;font-size:12px;font-weight:700;color:#b30000;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
 @media(max-width:640px){.wa-float{right:14px;bottom:20px}.wa-float-btn{width:56px;height:56px}.wa-float-btn svg{width:28px;height:28px}.conv-bar{font-size:12px;gap:8px}}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
-
 <!-- FLOATING WHATSAPP -->
 <div class="wa-float" id="waFloat">
   <div class="wa-float-tooltip" id="waTooltip"><strong>💬 Risposta in 5 minuti</strong>Test gratis 24h – senza contratto!</div>
@@ -1243,23 +1240,179 @@ button,a,[role="button"]{touch-action:manipulation}
 </div>
 
 <script>
-function toggleFaq(btn){const a=btn.nextElementSibling;const open=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));if(!open){a.classList.add('open');btn.classList.add('open');}}
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.score-fill').forEach(bar=>{const w=bar.style.width;bar.style.width='0%';setTimeout(()=>bar.style.width=w,120)});obs.unobserve(e.target)}})},{threshold:0.3});
-document.querySelectorAll('.score-bars').forEach(el=>obs.observe(el));
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);if(!id)return;const el=document.getElementById(id);if(el){e.preventDefault();window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'})}})});
-const PRICES={'3 Mesi':'29,99€','6 Mesi':'49,99€','12 Mesi':'69,99€'};
-function updateSummary(){const raw=document.getElementById('p_plan').value;const plan=raw.split(' – ')[0].replace(' (miglior valore)','');document.getElementById('sum_plan').textContent=plan;document.getElementById('sum_price').textContent=PRICES[plan]||'—';}
-const DEVICE_TYPE_MAP={smart_tv:'sub_smart_tv',firestick:'sub_firestick',ios:'sub_ios',android:'sub_android',pc:'sub_pc'};
-function onDeviceTypeChange(){['sub_smart_tv','sub_firestick','sub_ios','sub_android','sub_pc'].forEach(id=>document.getElementById(id).classList.remove('visible'));document.getElementById('other_device_wrap').classList.remove('visible');const val=document.getElementById('p_device_type').value;if(val==='other_device')document.getElementById('other_device_wrap').classList.add('visible');else if(DEVICE_TYPE_MAP[val])document.getElementById(DEVICE_TYPE_MAP[val]).classList.add('visible');}
-function openPopup(packageName){document.getElementById('popupTitle').textContent='Abbonati IPTV – '+packageName+' – iptv-abbonarsi.it';const planMap={'3 Mesi':'3 Mesi','6 Mesi':'6 Mesi','12 Mesi':'12 Mesi'};if(planMap[packageName])document.getElementById('p_plan').value=planMap[packageName];updateSummary();document.getElementById('orderPopup').style.display='flex';document.body.style.overflow='hidden';}
-function closePopup(){document.getElementById('orderPopup').style.display='none';document.body.style.overflow='';}
-function handleOverlayClick(e){if(e.target===document.getElementById('orderPopup'))closePopup();}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup();});
-function sendWhatsApp(){const email=document.getElementById('p_email').value.trim()||'Non fornita';const deviceType=document.getElementById('p_device_type').value;const raw=document.getElementById('p_plan').value;const plan=raw.split(' – ')[0].replace(' (miglior valore)','');const price=PRICES[plan]||'—';const msg='Ciao IPTV Abbonarsi! Voglio abbonarmi al vostro servizio IPTV:%0A─────────────────────%0AEmail: '+encodeURIComponent(email)+'%0ADispositivo: '+encodeURIComponent(deviceType||'Non specificato')+'%0APiano: '+encodeURIComponent(plan)+'%0APrezzo: '+encodeURIComponent(price)+'%0A─────────────────────%0APotete confermare e attivare il mio abbonamento IPTV? Grazie! 🇮🇹';window.open('https://api.whatsapp.com/send?phone=34604103092&text='+msg,'_blank');}
-updateSummary();
-(function(){const el=document.getElementById('liveCounter');if(!el)return;let base=1923;setInterval(function(){const delta=Math.floor(Math.random()*9)-4;base=Math.max(1750,Math.min(2100,base+delta));el.textContent=base.toLocaleString('it-IT');},4200);})();
-function showPersona(id){document.querySelectorAll('.persona-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.ptab-btn').forEach(b=>b.classList.remove('active'));const panel=document.getElementById('persona-'+id);if(panel)panel.classList.add('active');if(event&&event.currentTarget)event.currentTarget.classList.add('active');}
-(function(){var tip=document.getElementById('waTooltip');if(!tip)return;setTimeout(function(){tip.style.transition='opacity .5s, transform .5s';tip.style.opacity='0';tip.style.transform='translateY(8px) scale(.95)';setTimeout(function(){tip.style.display='none';},500);},5000);var scrollTimer;window.addEventListener('scroll',function(){clearTimeout(scrollTimer);scrollTimer=setTimeout(function(){if(tip.style.display==='none'){tip.style.display='block';tip.style.opacity='0';setTimeout(function(){tip.style.opacity='1';tip.style.transform='none';},10);setTimeout(function(){tip.style.opacity='0';setTimeout(function(){tip.style.display='none';},500);},4000);}},1200);},{passive:true});})();
-document.getElementById('waFloatBtn')&&document.getElementById('waFloatBtn').addEventListener('click',function(){try{var ctx=new(window.AudioContext||window.webkitAudioContext)();var osc=ctx.createOscillator();var gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);osc.type='sine';osc.frequency.setValueAtTime(520,ctx.currentTime);osc.frequency.exponentialRampToValueAtTime(680,ctx.currentTime+0.08);gain.gain.setValueAtTime(0.18,ctx.currentTime);gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.32);osc.start(ctx.currentTime);osc.stop(ctx.currentTime+0.33);}catch(e){}});
-(function(){var h=document.getElementById('cdH'),m=document.getElementById('cdM'),s=document.getElementById('cdS');if(!h||!m||!s)return;var total=(Math.floor(Math.random()*5)+4)*3600+Math.floor(Math.random()*3600);function tick(){if(total<=0){total=8*3600;return;}total--;var hh=Math.floor(total/3600),mm=Math.floor((total%3600)/60),ss=total%60;h.textContent=hh<10?'0'+hh:hh;m.textContent=mm<10?'0'+mm:mm;s.textContent=ss<10?'0'+ss:ss;}setInterval(tick,1000);})();
+/* ── Global functions (called by onclick attributes in HTML) ── */
+var PRICES={'3 Mesi':'29,99\u20ac','6 Mesi':'49,99\u20ac','12 Mesi':'69,99\u20ac'};
+var DEVICE_TYPE_MAP={smart_tv:'sub_smart_tv',firestick:'sub_firestick',ios:'sub_ios',android:'sub_android',pc:'sub_pc'};
+
+function toggleFaq(btn){
+  var a=btn.nextElementSibling;
+  var open=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(function(x){x.classList.remove('open');});
+  document.querySelectorAll('.faq-q').forEach(function(x){x.classList.remove('open');});
+  if(!open){a.classList.add('open');btn.classList.add('open');}
+}
+
+function updateSummary(){
+  var raw=document.getElementById('p_plan').value;
+  var plan=raw.split(' \u2013 ')[0].replace(' (miglior valore)','');
+  document.getElementById('sum_plan').textContent=plan;
+  document.getElementById('sum_price').textContent=PRICES[plan]||'\u2014';
+}
+
+function onDeviceTypeChange(){
+  ['sub_smart_tv','sub_firestick','sub_ios','sub_android','sub_pc'].forEach(function(id){
+    var el=document.getElementById(id);if(el)el.classList.remove('visible');
+  });
+  var ow=document.getElementById('other_device_wrap');if(ow)ow.classList.remove('visible');
+  var val=document.getElementById('p_device_type').value;
+  if(val==='other_device'){if(ow)ow.classList.add('visible');}
+  else if(DEVICE_TYPE_MAP[val]){var s=document.getElementById(DEVICE_TYPE_MAP[val]);if(s)s.classList.add('visible');}
+}
+
+function openPopup(packageName){
+  var t=document.getElementById('popupTitle');
+  if(t)t.textContent='Abbonati IPTV \u2013 '+packageName+' \u2013 iptv-abbonarsi.it';
+  var p=document.getElementById('p_plan');
+  if(p&&PRICES[packageName])p.value=packageName;
+  updateSummary();
+  var o=document.getElementById('orderPopup');
+  if(o){o.style.display='flex';document.body.style.overflow='hidden';}
+}
+
+function closePopup(){
+  var o=document.getElementById('orderPopup');
+  if(o){o.style.display='none';document.body.style.overflow='';}
+}
+
+function handleOverlayClick(e){
+  if(e.target===document.getElementById('orderPopup'))closePopup();
+}
+
+function showPersona(id){
+  document.querySelectorAll('.persona-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.ptab-btn').forEach(function(b){b.classList.remove('active');});
+  var panel=document.getElementById('persona-'+id);
+  if(panel)panel.classList.add('active');
+  if(event&&event.currentTarget)event.currentTarget.classList.add('active');
+}
+
+function sendWhatsApp(){
+  var email=(document.getElementById('p_email').value||'').trim()||'Non fornita';
+  var deviceType=document.getElementById('p_device_type').value;
+  var raw=document.getElementById('p_plan').value;
+  var plan=raw.split(' \u2013 ')[0].replace(' (miglior valore)','');
+  var price=PRICES[plan]||'\u2014';
+  var msg='Ciao IPTV Abbonarsi! Voglio abbonarmi al vostro servizio IPTV:%0A\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500%0AEmail: '+encodeURIComponent(email)+'%0ADispositivo: '+encodeURIComponent(deviceType||'Non specificato')+'%0APiano: '+encodeURIComponent(plan)+'%0APrezzo: '+encodeURIComponent(price)+'%0A\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500%0APotete confermare e attivare il mio abbonamento IPTV? Grazie! \uD83C\uDDEE\uD83C\uDDF9';
+  window.open('https://api.whatsapp.com/send?phone=34604103092&text='+msg,'_blank');
+}
+
+/* ── Initialisation – runs after widget DOM is ready ── */
+(function(){
+  function init(){
+    /* Popup summary default */
+    updateSummary();
+
+    /* Escape key closes popup */
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closePopup();});
+
+    /* Smooth scroll for anchor links */
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var id=a.getAttribute('href').slice(1);if(!id)return;
+        var target=document.getElementById(id);
+        if(target){e.preventDefault();window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});}
+      });
+    });
+
+    /* Score-bar animation on scroll */
+    if('IntersectionObserver' in window){
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.querySelectorAll('.score-fill').forEach(function(bar){
+              var w=bar.style.width;bar.style.width='0%';
+              setTimeout(function(){bar.style.width=w;},120);
+            });
+            obs.unobserve(entry.target);
+          }
+        });
+      },{threshold:0.3});
+      document.querySelectorAll('.score-bars').forEach(function(el){obs.observe(el);});
+    }
+
+    /* Live user counter */
+    var lc=document.getElementById('liveCounter');
+    if(lc){
+      var base=1923;
+      setInterval(function(){
+        var delta=Math.floor(Math.random()*9)-4;
+        base=Math.max(1750,Math.min(2100,base+delta));
+        lc.textContent=base.toLocaleString('it-IT');
+      },4200);
+    }
+
+    /* WhatsApp tooltip auto-hide + scroll re-show */
+    var tip=document.getElementById('waTooltip');
+    if(tip){
+      setTimeout(function(){
+        tip.style.transition='opacity .5s,transform .5s';
+        tip.style.opacity='0';tip.style.transform='translateY(8px) scale(.95)';
+        setTimeout(function(){tip.style.display='none';},500);
+      },5000);
+      var scrollTimer;
+      window.addEventListener('scroll',function(){
+        clearTimeout(scrollTimer);
+        scrollTimer=setTimeout(function(){
+          if(tip.style.display==='none'){
+            tip.style.display='block';tip.style.opacity='0';
+            setTimeout(function(){tip.style.opacity='1';tip.style.transform='none';},10);
+            setTimeout(function(){
+              tip.style.opacity='0';
+              setTimeout(function(){tip.style.display='none';},500);
+            },4000);
+          }
+        },1200);
+      },{passive:true});
+    }
+
+    /* Float button click sound */
+    var fb=document.getElementById('waFloatBtn');
+    if(fb){
+      fb.addEventListener('click',function(){
+        try{
+          var ctx=new(window.AudioContext||window.webkitAudioContext)();
+          var osc=ctx.createOscillator();var gain=ctx.createGain();
+          osc.connect(gain);gain.connect(ctx.destination);
+          osc.type='sine';
+          osc.frequency.setValueAtTime(520,ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(680,ctx.currentTime+0.08);
+          gain.gain.setValueAtTime(0.18,ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.32);
+          osc.start(ctx.currentTime);osc.stop(ctx.currentTime+0.33);
+        }catch(e){}
+      });
+    }
+
+    /* Countdown timer */
+    var cdH=document.getElementById('cdH'),cdM=document.getElementById('cdM'),cdS=document.getElementById('cdS');
+    if(cdH&&cdM&&cdS){
+      var total=(Math.floor(Math.random()*5)+4)*3600+Math.floor(Math.random()*3600);
+      setInterval(function(){
+        if(total<=0){total=8*3600;return;}
+        total--;
+        var hh=Math.floor(total/3600),mm=Math.floor((total%3600)/60),ss=total%60;
+        cdH.textContent=hh<10?'0'+hh:hh;
+        cdM.textContent=mm<10?'0'+mm:mm;
+        cdS.textContent=ss<10?'0'+ss:ss;
+      },1000);
+    }
+  }
+
+  /* Safe DOM-ready guard: works even if DOMContentLoaded already fired */
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',init);
+  } else {
+    init();
+  }
+})();
 </script>

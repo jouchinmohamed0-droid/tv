@@ -5,6 +5,7 @@
      Language: Italian | Country: Italy
      ============================================================ -->
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg-primary:#f7f8f3;--bg-secondary:#edf1e6;--bg-card:#ffffff;--bg-card-hover:#f2f6ec;--accent:#c8102e;--accent-hover:#a00d25;--accent-light:#d63651;--accent-soft:rgba(200,16,46,0.08);--gold:#d4a017;--green:#009246;--text-primary:#1a1a2e;--text-secondary:#3d4a3e;--text-muted:#7a8c6e;--border:rgba(200,16,46,0.10);--border-accent:rgba(200,16,46,0.22);--radius:14px;--radius-lg:22px;--shadow:0 4px 28px rgba(200,16,46,0.09);--shadow-lg:0 12px 48px rgba(200,16,46,0.14);--shadow-accent:0 6px 32px rgba(200,16,46,0.22);--pink:#9e1b32;--pink-soft:rgba(158,27,50,0.08);--pink-border:rgba(158,27,50,0.22)}
 html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
@@ -262,10 +263,6 @@ button,a,[role="button"]{touch-action:manipulation}
 .conv-bar-cta:hover{background:#fafafa}
 @media(max-width:640px){.wa-float{right:14px;bottom:20px}.wa-float-btn{width:56px;height:56px}.wa-float-btn svg{width:28px;height:28px}.conv-bar{font-size:12px;gap:8px}}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
-
 <!-- FLOATING WHATSAPP -->
 <div class="wa-float">
   <a href="https://api.whatsapp.com/send?phone=34604103092&text=Ciao!%20Sono%20su%20iptv-abbonarsi.it%20e%20vorrei%20informazioni%20sui%20prezzi%20IPTV." target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Chatta su WhatsApp">
@@ -559,16 +556,92 @@ button,a,[role="button"]{touch-action:manipulation}
 </div>
 
 <script>
-function toggleFaq(btn){const a=btn.nextElementSibling;const open=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));if(!open){a.classList.add('open');btn.classList.add('open');}}
-const PRICES={'3 Mesi':'29,99€','6 Mesi':'49,99€','12 Mesi':'69,99€'};
-function updateSummary(){const raw=document.getElementById('p_plan').value;const plan=raw.split(' – ')[0];document.getElementById('sum_plan').textContent=plan;document.getElementById('sum_price').textContent=PRICES[plan]||'—';}
-function openPopup(packageName){document.getElementById('popupTitle').textContent='Prezzi IPTV – Piano '+packageName+' – iptv-abbonarsi.it';if(PRICES[packageName])document.getElementById('p_plan').value=packageName;updateSummary();document.getElementById('orderPopup').style.display='flex';document.body.style.overflow='hidden';}
-function closePopup(){document.getElementById('orderPopup').style.display='none';document.body.style.overflow='';}
-function handleOverlayClick(e){if(e.target===document.getElementById('orderPopup'))closePopup();}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup();});
-function sendWhatsApp(){const email=document.getElementById('p_email').value.trim()||'Non fornita';const raw=document.getElementById('p_plan').value;const plan=raw.split(' – ')[0];const price=PRICES[plan]||'—';const msg='Ciao IPTV Abbonarsi! Sono interessato al seguente piano:%0A─────────────────────%0AEmail: '+encodeURIComponent(email)+'%0APiano: '+encodeURIComponent(plan)+'%0APrezzo IPTV: '+encodeURIComponent(price)+'%0A─────────────────────%0APotete confermare il prezzo e attivare il mio abbonamento IPTV? Grazie! 🇮🇹';window.open('https://api.whatsapp.com/send?phone=34604103092&text='+msg,'_blank');}
-updateSummary();
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);if(!id)return;const el=document.getElementById(id);if(el){e.preventDefault();window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'})}})});
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.score-fill').forEach(bar=>{const w=bar.style.width;bar.style.width='0%';setTimeout(()=>bar.style.width=w,120)});obs.unobserve(e.target)}})},{threshold:0.3});
-document.querySelectorAll('.score-bars').forEach(el=>obs.observe(el));
+/* ── Global functions (called by onclick attributes in HTML) ── */
+var PRICES={'3 Mesi':'29,99\u20ac','6 Mesi':'49,99\u20ac','12 Mesi':'69,99\u20ac'};
+
+function toggleFaq(btn){
+  var a=btn.nextElementSibling;
+  var open=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(function(x){x.classList.remove('open');});
+  document.querySelectorAll('.faq-q').forEach(function(x){x.classList.remove('open');});
+  if(!open){a.classList.add('open');btn.classList.add('open');}
+}
+
+function updateSummary(){
+  var raw=document.getElementById('p_plan').value;
+  var plan=raw.split(' \u2013 ')[0];
+  document.getElementById('sum_plan').textContent=plan;
+  document.getElementById('sum_price').textContent=PRICES[plan]||'\u2014';
+}
+
+function openPopup(packageName){
+  var t=document.getElementById('popupTitle');
+  if(t)t.textContent='Prezzi IPTV \u2013 Piano '+packageName+' \u2013 iptv-abbonarsi.it';
+  var p=document.getElementById('p_plan');
+  if(p&&PRICES[packageName])p.value=packageName;
+  updateSummary();
+  var o=document.getElementById('orderPopup');
+  if(o){o.style.display='flex';document.body.style.overflow='hidden';}
+}
+
+function closePopup(){
+  var o=document.getElementById('orderPopup');
+  if(o){o.style.display='none';document.body.style.overflow='';}
+}
+
+function handleOverlayClick(e){
+  if(e.target===document.getElementById('orderPopup'))closePopup();
+}
+
+function sendWhatsApp(){
+  var email=(document.getElementById('p_email').value||'').trim()||'Non fornita';
+  var raw=document.getElementById('p_plan').value;
+  var plan=raw.split(' \u2013 ')[0];
+  var price=PRICES[plan]||'\u2014';
+  var msg='Ciao IPTV Abbonarsi! Sono interessato al seguente piano:%0A\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500%0AEmail: '+encodeURIComponent(email)+'%0APiano: '+encodeURIComponent(plan)+'%0APrezzo IPTV: '+encodeURIComponent(price)+'%0A\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500%0APotete confermare il prezzo e attivare il mio abbonamento IPTV? Grazie! \uD83C\uDDEE\uD83C\uDDF9';
+  window.open('https://api.whatsapp.com/send?phone=34604103092&text='+msg,'_blank');
+}
+
+/* ── Initialisation – runs after widget DOM is ready ── */
+(function(){
+  function init(){
+    /* Popup summary default */
+    updateSummary();
+
+    /* Escape key closes popup */
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closePopup();});
+
+    /* Smooth scroll for anchor links */
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var id=a.getAttribute('href').slice(1);if(!id)return;
+        var target=document.getElementById(id);
+        if(target){e.preventDefault();window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'});}
+      });
+    });
+
+    /* Score-bar animation on scroll */
+    if('IntersectionObserver' in window){
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.querySelectorAll('.score-fill').forEach(function(bar){
+              var w=bar.style.width;bar.style.width='0%';
+              setTimeout(function(){bar.style.width=w;},120);
+            });
+            obs.unobserve(entry.target);
+          }
+        });
+      },{threshold:0.3});
+      document.querySelectorAll('.score-bars').forEach(function(el){obs.observe(el);});
+    }
+  }
+
+  /* Safe DOM-ready guard: works even if DOMContentLoaded already fired */
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',init);
+  } else {
+    init();
+  }
+})();
 </script>
