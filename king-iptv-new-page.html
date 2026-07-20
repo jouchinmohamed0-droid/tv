@@ -469,14 +469,7 @@
 .kw .install-cta-text strong{display:block;font-size:.96rem;font-weight:800;margin-bottom:3px}
 .kw .install-cta-text span{font-size:.82rem;color:var(--t2)}
 
-/* ── FLOATING CTA ── */
-.kw .float-cta{position:fixed;right:22px;bottom:30px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-.kw .float-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--red),var(--rd));color:#fff;font-weight:800;font-size:.86rem;padding:12px 20px;border-radius:50px;text-decoration:none;box-shadow:0 6px 28px rgba(255,49,49,.45);transition:all .25s;animation:kfloat 2.5s ease-in-out infinite}
-.kw .float-btn:hover{transform:translateY(-3px)!important;box-shadow:0 10px 36px rgba(255,49,49,.6);animation:none}
-.kw .float-tip{background:var(--c2);border:1px solid var(--br);border-radius:10px;padding:8px 12px;font-size:.76rem;font-weight:600;color:var(--t2);white-space:nowrap;pointer-events:none;position:relative}
-.kw .float-tip::after{content:'';position:absolute;right:16px;bottom:-6px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid var(--c2)}
-.kw .float-tip strong{color:var(--red);display:block;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px}
-.kw .ldot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:kpulse 1.5s ease-in-out infinite;flex-shrink:0;display:inline-block}
+
 
 /* ── STICKY BAR ── */
 .kw .sticky-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,8,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--br);padding:12px 24px;z-index:9990;transform:translateY(100%);transition:transform .4s ease}
@@ -527,16 +520,57 @@
   .kw .sticky-inner{flex-direction:column;gap:10px;text-align:center}
   .kw .sticky-actions .btn-s{display:none}
   .kw .conv-bar{flex-direction:column;gap:6px}
-  .kw .float-tip{display:none}
   .kw .ptabs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 }
+
+/* ── ORDER POPUP ── */
+.kw .kw-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:10000;display:none;align-items:center;justify-content:center;padding:16px}
+.kw .kw-overlay.open{display:flex}
+.kw .kw-modal{background:var(--c2);border:1px solid var(--rb);border-radius:var(--rx);max-width:460px;width:100%;max-height:92vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.7),0 0 0 1px rgba(255,49,49,.1);scrollbar-width:thin;scrollbar-color:var(--br) transparent}
+.kw .km-top{background:linear-gradient(135deg,var(--red) 0%,var(--rd) 100%);padding:24px 28px 20px;border-radius:var(--rx) var(--rx) 0 0;position:relative}
+.kw .km-title{font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:4px}
+.kw .km-sub{font-size:.8rem;color:rgba(255,255,255,.78)}
+.kw .km-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.18);border:none;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.15rem;line-height:1;transition:background .2s;font-family:inherit}
+.kw .km-close:hover{background:rgba(255,255,255,.32)}
+.kw .km-body{padding:26px 26px 22px}
+.kw .km-group{margin-bottom:18px}
+.kw .km-label{display:block;font-size:.74rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px}
+.kw .km-select,.kw .km-input{width:100%;padding:12px 14px;background:var(--bg);border:1.5px solid var(--br);border-radius:var(--r);color:var(--t1);font-size:.93rem;font-family:inherit;outline:none;appearance:none;-webkit-appearance:none;transition:border-color .22s,box-shadow .22s;cursor:pointer}
+.kw .km-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba%28255%2C255%2C255%2C.35%29' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-color:var(--bg);padding-right:36px}
+.kw .km-select:focus,.kw .km-input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,49,49,.1)}
+.kw .km-select option{background:var(--c2);color:var(--t1)}
+.kw .km-input::placeholder{color:var(--t3)}
+.kw .km-divider{height:1px;background:var(--br);margin:6px 0 20px}
+.kw .km-submit{width:100%;padding:15px;background:linear-gradient(135deg,#25D366 0%,#1aa849 100%);border:none;border-radius:var(--rl);color:#fff;font-size:.97rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:all .25s;font-family:inherit;box-shadow:0 4px 20px rgba(37,211,102,.32);letter-spacing:.02em}
+.kw .km-submit:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.48)}
+.kw .km-footer{text-align:center;margin-top:14px;font-size:.76rem;color:var(--t3);display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.kw .km-footer span{display:flex;align-items:center;gap:4px}
+
+/* ── FLOATING WHATSAPP ── */
+.kw .wa-float{position:fixed;right:22px;bottom:90px;z-index:9998;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.kw .wa-float-btn{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25D366 0%,#1aa849 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.48);cursor:pointer;text-decoration:none;transition:transform .25s,box-shadow .25s;animation:kwapulse 2.6s ease-in-out infinite;position:relative}
+.kw .wa-float-btn::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,211,102,.38);animation:kwapulse 2.6s ease-in-out infinite;pointer-events:none}
+.kw .wa-float-btn:hover{transform:scale(1.1)!important;box-shadow:0 8px 32px rgba(37,211,102,.65);animation:none}
+.kw .wa-float-btn:hover::before{display:none}
+.kw .wa-float-svg{width:30px;height:30px;fill:#fff;flex-shrink:0}
+.kw .wa-float-tip{background:var(--c2);border:1px solid var(--br);border-radius:10px;padding:8px 13px;font-size:.79rem;font-weight:600;color:var(--t2);white-space:nowrap;pointer-events:none;position:relative;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.kw .wa-float-tip strong{color:#25D366;display:block;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.kw .wa-float-tip::after{content:'';position:absolute;right:16px;bottom:-6px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid var(--c2)}
+@keyframes kwapulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@media(max-width:560px){
+  .kw .wa-float{right:14px;bottom:80px}
+  .kw .wa-float-btn{width:52px;height:52px}
+  .kw .wa-float-svg{width:26px;height:26px}
+  .kw .wa-float-tip{display:none}
+}
+
 </style>
 
 <div class="kw" id="kw">
 
 <div class="conv-bar">
   🔥 <strong>Begränsat erbjudande:</strong> Testa King IPTV gratis — 55&nbsp;000+ kanaler i 4K utan bindningstid
-  <a href="https://www.kingiptv.se/iptv-abonnemang/" class="conv-cta">Aktivera nu →</a>
+  <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="conv-cta">Aktivera nu →</a>
 </div>
 
 <div class="sp-ticker">
@@ -567,7 +601,7 @@
     <p class="hero-sub fu d2">Med <strong>King IPTV</strong> streamar du live-sport, filmer och serier i HD &amp; 4K på alla dina enheter — stabil, snabb och utan bindningstid. Från 62&nbsp;kr/mån.</p>
     <p class="hero-meta fu d2">Uppdaterad juli 2026 · Aktivering 1–5 min · Ingen bindningstid · 99.9% drifttid</p>
     <div class="hero-ctas fu d3">
-      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-lg">
+      <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p btn-lg">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         Testa Nu — Få Tillgång Direkt
       </a>
@@ -959,7 +993,7 @@
       </div>
     </div>
     <div class="guar-cta fu">
-      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-lg">👑 Starta gratis test — noll risk</a>
+      <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p btn-lg">👑 Starta gratis test — noll risk</a>
       <p>Inget kreditkort · Ingen bindningstid · Aktiveras inom 5 minuter</p>
     </div>
   </div>
@@ -990,7 +1024,7 @@
           <li>PPV-sport (UFC, boxning, F1) utan extra avgifter</li>
           <li>Antifreeze PRO — inga frysningar under avgörande matcher</li>
         </ul>
-        <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p">⚽ Testa sportpaketet gratis</a>
+        <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p">⚽ Testa sportpaketet gratis</a>
       </div>
       <div class="pp-card">
         <div class="pp-badge">⚽ Sport-profil</div>
@@ -1013,7 +1047,7 @@
           <li>7-dagars catch-up — missa aldrig barnens favoriter</li>
           <li>Fungerar på Smart TV, iPad, mobil och dator</li>
         </ul>
-        <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p">👨‍👩‍👧‍👦 Testa familjepaketet gratis</a>
+        <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p">👨‍👩‍👧‍👦 Testa familjepaketet gratis</a>
       </div>
       <div class="pp-card">
         <div class="pp-badge">👨‍👩‍👧‍👦 Familje-profil</div>
@@ -1036,7 +1070,7 @@
           <li>SVT, TV4 och svenska kanaler ingår simultant</li>
           <li>Allt i ett abonnemang utan extra kostnad</li>
         </ul>
-        <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p">🌍 Testa internationell täckning</a>
+        <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p">🌍 Testa internationell täckning</a>
       </div>
       <div class="pp-card">
         <div class="pp-badge">🌍 Internationell profil</div>
@@ -1059,7 +1093,7 @@
           <li>Aktivering via e-post — var du än befinner dig</li>
           <li>Support på svenska dygnet runt</li>
         </ul>
-        <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p">✈️ Testa utomlands gratis</a>
+        <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p">✈️ Testa utomlands gratis</a>
       </div>
       <div class="pp-card">
         <div class="pp-badge">✈️ Expat-profil</div>
@@ -1079,7 +1113,7 @@
     <p class="mid-eyebrow">👑 Begränsat gratis test — Aktivering inom 5 min</p>
     <h2>Testa <span class="acc">King IPTV</span> gratis idag —<br>55&nbsp;000+ kanaler väntar</h2>
     <p>Inga bindningstider. Ingen automatisk debitering. Aktiveras direkt — du streamar Allsvenskan och SHL i 4K inom minuter. Kom igång nu.</p>
-    <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-lg">
+    <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p btn-lg">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Starta gratis test nu
     </a>
@@ -1109,7 +1143,7 @@
             <div class="p-amount-wrap"><span class="p-price-val">399 kr</span></div>
           </div>
         </div>
-        <a href="https://www.kingiptv.se/iptv-abonnemang/" class="p-card-btn p-btn-outline">Beställ nu</a>
+        <a href="#" class="p-card-btn p-btn-outline js-popup">Beställ nu</a>
         <div class="p-feat-divider"></div>
         <ul class="p-feature-list">
           <li>55&nbsp;000+ live-kanaler</li>
@@ -1135,7 +1169,7 @@
             <div class="p-amount-wrap"><span class="p-price-val">599 kr</span></div>
           </div>
         </div>
-        <a href="https://www.kingiptv.se/iptv-abonnemang/" class="p-card-btn p-btn-outline">Beställ nu</a>
+        <a href="#" class="p-card-btn p-btn-outline js-popup">Beställ nu</a>
         <div class="p-feat-divider"></div>
         <ul class="p-feature-list">
           <li>55&nbsp;000+ live-kanaler</li>
@@ -1165,7 +1199,7 @@
             </div>
           </div>
         </div>
-        <a href="https://www.kingiptv.se/iptv-abonnemang/" class="p-card-btn p-btn-red">Beställ nu</a>
+        <a href="#" class="p-card-btn p-btn-red js-popup">Beställ nu</a>
         <div class="p-feat-divider"></div>
         <ul class="p-feature-list">
           <li>55&nbsp;000+ live-kanaler</li>
@@ -1196,7 +1230,7 @@
       <span>✓ Avbryt när som helst</span>
     </div>
     <div class="hbox fu" style="margin-top:28px">
-      <strong>💡 Gratis test:</strong> Osäker? Testa King IPTV gratis med full tillgång till alla 55&nbsp;000+ kanaler, all nordisk sport och hela VOD-biblioteket. Aktivera via <a href="https://www.kingiptv.se/iptv-abonnemang/" style="color:var(--red);font-weight:600">vår abonnemangssida</a> — ingen risk, ingen bindning.
+      <strong>💡 Gratis test:</strong> Osäker? Testa King IPTV gratis med full tillgång till alla 55&nbsp;000+ kanaler, all nordisk sport och hela VOD-biblioteket. Aktivera via <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-weight:600">vår abonnemangssida</a> — ingen risk, ingen bindning.
     </div>
   </div>
 </section>
@@ -1253,7 +1287,7 @@
           <span class="spots-text">3 platser kvar idag</span>
         </div>
       </div>
-      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p">🔥 Säkra din plats nu</a>
+      <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p">🔥 Säkra din plats nu</a>
     </div>
   </div>
 </section>
@@ -1289,7 +1323,7 @@
       <div class="step-card fu d1">
         <div class="step-num">1</div>
         <h4>Välj ett paket</h4>
-        <p>Välj det <a href="https://www.kingiptv.se/iptv-abonnemang/" class="sc">King IPTV-abonnemang</a> som passar dig. Alla planer inkluderar samma fullständiga kanalutbud.</p>
+        <p>Välj det <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="sc">King IPTV-abonnemang</a> som passar dig. Alla planer inkluderar samma fullständiga kanalutbud.</p>
       </div>
       <div class="step-card fu d2">
         <div class="step-num">2</div>
@@ -1344,7 +1378,7 @@
       </div>
     </div>
     <div class="test-cta fu">
-      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-lg">🔥 Testa King IPTV nu</a>
+      <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p btn-lg">🔥 Testa King IPTV nu</a>
     </div>
   </div>
 </section>
@@ -1371,7 +1405,7 @@
           </div>
           <div class="faq-item">
             <button class="fq" aria-expanded="false">Kan jag testa King IPTV gratis innan jag köper?<span class="fi">+</span></button>
-            <div class="fa"><div class="fa-inner">Ja — vi erbjuder ett gratis test för nya kunder. Du får full tillgång till alla 55&nbsp;000+ kanaler, all nordisk sport och hela VOD-biblioteket utan att ange kreditkortsuppgifter. Bestämmer du att avsluta betalar du ingenting. Starta via <a href="https://www.kingiptv.se/iptv-abonnemang/">vår abonnemangssida</a>.</div></div>
+            <div class="fa"><div class="fa-inner">Ja — vi erbjuder ett gratis test för nya kunder. Du får full tillgång till alla 55&nbsp;000+ kanaler, all nordisk sport och hela VOD-biblioteket utan att ange kreditkortsuppgifter. Bestämmer du att avsluta betalar du ingenting. Starta via <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">vår abonnemangssida</a>.</div></div>
           </div>
           <div class="faq-item">
             <button class="fq" aria-expanded="false">Vilken internethastighet behöver jag?<span class="fi">+</span></button>
@@ -1404,7 +1438,7 @@
         <div class="fa-body">
           <h3>Redo att testa King IPTV?</h3>
           <p>Gratis test, ingen bindning. Kom igång på 5 minuter direkt från din enhet.</p>
-          <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-full">Starta gratis test</a>
+          <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p btn-full">Starta gratis test</a>
           <a href="https://www.kingiptv.se/faq/" class="faq-link">Visa alla frågor →</a>
         </div>
       </div>
@@ -1420,7 +1454,7 @@
       <p>Vill du lära dig mer om King IPTV? Här hittar du våra mest lästa guider — från installation till sport och nordisk täckning.</p>
     </div>
     <div class="hub-grid fu">
-      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="hub-card hub-featured">
+      <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="hub-card hub-featured">
         <span class="hub-icon">🏆</span>
         <div class="hub-featured-content">
           <div class="hub-cat">Mest populärt · Abonnemang</div>
@@ -1473,7 +1507,7 @@
     <div class="bot-badge">👑 Bäst i test 2026 · 9.7/10</div>
     <h2>Redo att uppleva <span class="acc">King IPTV</span> gratis?</h2>
     <p>Kom igång direkt — 55&nbsp;000+ kanaler, live-sport i 4K och 215&nbsp;000+ filmer väntar. Gratis test, ingen bindning. Aktivering inom 5 minuter.</p>
-    <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-lg">
+    <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p btn-lg">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Starta gratis test nu
     </a>
@@ -1559,33 +1593,22 @@
         <strong>Redo att bli King IPTV-kund?</strong>
         <span>Aktiveras automatiskt. Ingen väntan, inga mellanhänder — kom igång på 5 minuter.</span>
       </div>
-      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p">Beställ nu →</a>
+      <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-p">Beställ nu →</a>
     </div>
   </div>
 </section>
 
-<div class="float-cta" id="kw-float">
-  <div class="float-tip" id="kw-tip">
-    <strong>👑 King IPTV</strong>
-    Fr. 62 kr/mån · Gratis test
+<div class="wa-float" id="kwWaFloat">
+  <div class="wa-float-tip" id="kwWaTip">
+    <strong>💬 Chatta med oss</strong>
+    Svarar inom 5 minuter
   </div>
-  <a href="https://www.kingiptv.se/iptv-abonnemang/" class="float-btn">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    Testa gratis nu
+  <a href="https://api.whatsapp.com/send/?phone=33773175777&text&type=phone_number&app_absent=0"
+     target="_blank" rel="noopener noreferrer"
+     class="wa-float-btn" aria-label="Kontakta oss på WhatsApp">
+    <svg class="wa-float-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
   </a>
 </div>
-
-<div class="sticky-bar" id="kw-sticky" role="complementary" aria-label="King IPTV snabborder">
-  <div class="sticky-inner">
-    <div class="sticky-txt">
-      King IPTV — fr. 62 kr/mån
-      <small>55&nbsp;000+ kanaler · Ingen bindningstid · Gratis test</small>
-    </div>
-    <div class="sticky-actions">
-      <a href="#priser" class="btn btn-s" style="padding:10px 20px;font-size:.83rem">Se priser</a>
-      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p" style="padding:10px 20px;font-size:.83rem">Testa gratis nu</a>
-    </div>
-  </div>
 </div>
 
 </div>
@@ -1627,25 +1650,52 @@
     if(!tick){requestAnimationFrame(function(){sticky.classList[window.scrollY>600?'add':'remove']('vis');tick=false;});tick=true;}
   },{passive:true});
 
-  /* ── Float CTA ── */
-  var float=document.getElementById('kw-float');
-  var tip=document.getElementById('kw-tip');
-  if(float&&tip){
+  /* ── WA Float tooltip auto-hide ── */
+  var waTip=document.getElementById('kwWaTip');
+  if(waTip){
     setTimeout(function(){
-      tip.style.transition='opacity .5s';tip.style.opacity='0';
-      setTimeout(function(){tip.style.display='none';},500);
-    },5000);
-    var stimer;
-    window.addEventListener('scroll',function(){
-      clearTimeout(stimer);
-      stimer=setTimeout(function(){
-        if(tip.style.display==='none'&&window.scrollY>500){
-          tip.style.display='block';tip.style.opacity='0';
-          setTimeout(function(){tip.style.opacity='1';},10);
-          setTimeout(function(){tip.style.opacity='0';setTimeout(function(){tip.style.display='none';},500);},4000);
-        }
-      },1200);
-    },{passive:true});
+      waTip.style.transition='opacity .5s';waTip.style.opacity='0';
+      setTimeout(function(){waTip.style.display='none';},500);
+    },5500);
+  }
+
+  /* ── Order popup modal ── */
+  var kwOverlay=document.getElementById('kwOverlay');
+  var kwClose=document.getElementById('kwClose');
+  var kwSubmit=document.getElementById('kwSubmit');
+  var WA_BASE='https://api.whatsapp.com/send/?phone=33773175777';
+
+  function kwOpen(){if(kwOverlay){kwOverlay.classList.add('open');document.body.style.overflow='hidden';}}
+  function kwClose2(){if(kwOverlay){kwOverlay.classList.remove('open');document.body.style.overflow='';}}
+
+  w.querySelectorAll('.js-popup').forEach(function(btn){
+    btn.addEventListener('click',function(e){e.preventDefault();kwOpen();});
+  });
+
+  if(kwOverlay) kwOverlay.addEventListener('click',function(e){if(e.target===kwOverlay)kwClose2();});
+  if(kwClose) kwClose.addEventListener('click',kwClose2);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')kwClose2();});
+
+  if(kwSubmit){
+    kwSubmit.addEventListener('click',function(){
+      var device=(document.getElementById('km-device')||{}).value||'Ej angiven';
+      var app=(document.getElementById('km-app')||{}).value||'Ej angiven';
+      var email=(document.getElementById('km-email')||{}).value||'Ej angiven';
+      if(!device||device==='Ej angiven'){document.getElementById('km-device').focus();return;}
+      var msg=encodeURIComponent(
+        'Hej! Jag vill beställa King IPTV 👑
+'+
+        '📱 Enhet: '+device+'
+'+
+        '📺 App: '+app+'
+'+
+        '📧 E-post: '+email+'
+'+
+        'Kan ni hjälpa mig att komma igång?'
+      );
+      window.open(WA_BASE+'&text='+msg+'&type=phone_number&app_absent=0','_blank');
+      kwClose2();
+    });
   }
 
   /* ── FAQ accordion ── */
