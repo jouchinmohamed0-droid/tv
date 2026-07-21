@@ -1,0 +1,1049 @@
+<style>
+.kiptv-wrap*,.kiptv-wrap*::before,.kiptv-wrap*::after{box-sizing:border-box;margin:0;padding:0}
+.kiptv-wrap{
+  --red:#e63946;--red-d:#c1121f;--red-g:rgba(230,57,70,.18);--red-b:rgba(230,57,70,.35);
+  --red-t:rgba(230,57,70,.09);--bg:#080808;--card:#111113;--card2:#161618;
+  --border:rgba(255,255,255,.07);--bh:rgba(255,255,255,.13);--green:#22c55e;
+  --t1:#fff;--t2:rgba(255,255,255,.68);--t3:rgba(255,255,255,.42);--t4:rgba(255,255,255,.25);
+  --r:12px;--rl:18px;--rxl:24px;--mw:1140px;
+  font-family:inherit;color:var(--t1);background:var(--bg);width:100%;overflow-x:hidden;line-height:1.6;
+}
+.kiptv-wrap h1,.kiptv-wrap h2,.kiptv-wrap h3,.kiptv-wrap h4{line-height:1.2;font-weight:700;color:var(--t1)}
+.kiptv-wrap h1{font-size:clamp(2.2rem,5.2vw,4rem);font-weight:800;letter-spacing:-.02em}
+.kiptv-wrap h2{font-size:clamp(1.7rem,3.8vw,2.7rem);font-weight:700;letter-spacing:-.01em}
+.kiptv-wrap h3{font-size:clamp(1rem,2vw,1.25rem)}
+.kiptv-wrap h4{font-size:.97rem;font-weight:700}
+.kiptv-wrap p{color:var(--t2);font-size:1.02rem;line-height:1.72}
+.kiptv-wrap a{text-decoration:none}
+.kiptv-wrap .acc{color:var(--red)}
+.kiptv-wrap .con{max-width:var(--mw);margin:0 auto;padding:0 24px}
+.kiptv-wrap .sec-label{display:inline-block;font-size:.69rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.kiptv-wrap .sec-head{max-width:680px;margin:0 auto 52px;text-align:center}
+.kiptv-wrap .sec-head p{margin-top:14px;font-size:.98rem}
+
+.kiptv-wrap .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 30px;border-radius:50px;font-size:.97rem;font-weight:700;cursor:pointer;text-decoration:none;border:none;transition:all .25s ease;white-space:nowrap;line-height:1}
+.kiptv-wrap .btn-p{background:linear-gradient(135deg,var(--red) 0%,var(--red-d) 100%);color:#fff;box-shadow:0 4px 22px var(--red-g)}
+.kiptv-wrap .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(230,57,70,.48);filter:brightness(1.08)}
+.kiptv-wrap .btn-s{background:transparent;color:var(--t1);border:1.5px solid var(--t4)}
+.kiptv-wrap .btn-s:hover{border-color:var(--bh);background:rgba(255,255,255,.05);transform:translateY(-2px)}
+.kiptv-wrap .btn-lg{padding:18px 40px;font-size:1.07rem}
+.kiptv-wrap .btn-full{width:100%}
+
+@keyframes kpulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.55}}
+.kiptv-wrap .fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.kiptv-wrap .fu.vis{opacity:1;transform:translateY(0)}
+.kiptv-wrap .d1{transition-delay:.1s}.kiptv-wrap .d2{transition-delay:.2s}.kiptv-wrap .d3{transition-delay:.3s}.kiptv-wrap .d4{transition-delay:.4s}
+
+.kiptv-wrap .hero{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden;background:var(--bg)}
+.kiptv-wrap .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 72% 56% at 50% 40%,rgba(230,57,70,.11) 0%,transparent 68%);pointer-events:none}
+.kiptv-wrap .hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.016'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.kiptv-wrap .hero-inner{position:relative;z-index:1;max-width:880px;margin:0 auto}
+.kiptv-wrap .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(230,57,70,.08);border:1px solid rgba(230,57,70,.22);border-radius:50px;padding:6px 16px;font-size:.69rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--red);margin-bottom:28px}
+.kiptv-wrap .hero h1{margin-bottom:22px}
+.kiptv-wrap .hero-sub{max-width:580px;margin:0 auto 34px;font-size:1.12rem;color:var(--t2)}
+.kiptv-wrap .hero-pills{display:flex;align-items:center;justify-content:center;gap:22px;margin-bottom:38px;flex-wrap:wrap}
+.kiptv-wrap .hp{display:flex;align-items:center;gap:6px;font-size:.9rem;color:var(--t2)}
+.kiptv-wrap .hp-check{color:var(--red);font-weight:700}
+.kiptv-wrap .hero-ctas{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:44px;flex-wrap:wrap}
+.kiptv-wrap .hero-proof{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+.kiptv-wrap .hproof{display:flex;align-items:center;gap:7px;font-size:.88rem;color:var(--t3)}
+.kiptv-wrap .hproof strong{color:var(--t2);font-weight:600}
+
+.kiptv-wrap .ts{background:var(--card);border-bottom:1px solid var(--border)}
+.kiptv-wrap .ts-inner{max-width:var(--mw);margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+.kiptv-wrap .ts-item{display:flex;align-items:center;gap:7px;font-size:.84rem;color:var(--t3)}
+.kiptv-wrap .ts-item strong{color:var(--t2);font-weight:600}
+.kiptv-wrap .ts-div{width:1px;height:18px;background:var(--border)}
+
+.kiptv-wrap .prob-sec,.kiptv-wrap .what-sec,.kiptv-wrap .af-sec,.kiptv-wrap .dev-sec,.kiptv-wrap .price-sec,.kiptv-wrap .test-sec,.kiptv-wrap .faq-sec{padding:96px 24px;background:var(--bg)}
+.kiptv-wrap .why-sec,.kiptv-wrap .cat-sec,.kiptv-wrap .sf-sec,.kiptv-wrap .cmp-sec,.kiptv-wrap .pay-sec,.kiptv-wrap .how-sec{padding:96px 24px;background:var(--card)}
+
+.kiptv-wrap .prob-grid{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.kiptv-wrap .prob-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:36px 28px;transition:all .3s ease;position:relative;overflow:hidden}
+.kiptv-wrap .prob-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0;transition:opacity .3s}
+.kiptv-wrap .prob-card:hover{border-color:var(--red-b);transform:translateY(-5px);box-shadow:0 12px 40px rgba(230,57,70,.1)}
+.kiptv-wrap .prob-card:hover::after{opacity:1}
+.kiptv-wrap .picon{width:52px;height:52px;background:var(--red-t);border:1px solid rgba(230,57,70,.18);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.kiptv-wrap .prob-card h3{margin-bottom:10px;font-size:1.08rem}
+.kiptv-wrap .prob-card p{font-size:.91rem;line-height:1.68}
+.kiptv-wrap .prob-bridge{text-align:center;margin-top:48px;padding-top:44px;border-top:1px solid var(--border);max-width:var(--mw);margin-left:auto;margin-right:auto}
+.kiptv-wrap .prob-bridge p{font-size:1rem;margin-bottom:20px}
+
+.kiptv-wrap .what-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.kiptv-wrap .what-left h2{margin-bottom:20px}
+.kiptv-wrap .what-left p{margin-bottom:16px;font-size:.97rem}
+.kiptv-wrap .what-right{background:var(--card);border:1px solid var(--border);border-radius:var(--rxl);padding:32px 26px;position:sticky;top:80px}
+.kiptv-wrap .what-right h3{margin-bottom:18px;font-size:1rem;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+.kiptv-wrap .kpi-row{display:flex;align-items:center;gap:14px;padding:14px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);transition:border-color .25s;margin-bottom:10px}
+.kiptv-wrap .kpi-row:last-child{margin-bottom:0}
+.kiptv-wrap .kpi-row:hover{border-color:var(--red-b)}
+.kiptv-wrap .kpi-icon{width:40px;height:40px;min-width:40px;background:var(--red-t);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem}
+.kiptv-wrap .kpi-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--t1);margin-bottom:1px}
+.kiptv-wrap .kpi-text span{font-size:.78rem;color:var(--t3)}
+
+.kiptv-wrap .cat-grid{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kiptv-wrap .cat-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:30px 24px;transition:all .3s ease}
+.kiptv-wrap .cat-card:hover{border-color:var(--red-b);transform:translateY(-4px);box-shadow:0 10px 36px rgba(230,57,70,.09)}
+.kiptv-wrap .cat-icon{font-size:1.9rem;margin-bottom:14px;display:block}
+.kiptv-wrap .cat-card h3{font-size:1.02rem;margin-bottom:8px}
+.kiptv-wrap .cat-card p{font-size:.86rem;color:var(--t2);margin-bottom:12px}
+.kiptv-wrap .cat-tag{display:inline-flex;align-items:center;gap:5px;font-size:.71rem;font-weight:700;color:var(--red);background:var(--red-t);border:1px solid rgba(230,57,70,.18);border-radius:5px;padding:3px 8px}
+
+.kiptv-wrap .why-grid{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.kiptv-wrap .why-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:32px 28px;display:flex;gap:22px;align-items:flex-start;transition:all .3s ease}
+.kiptv-wrap .why-card:hover{border-color:var(--red-b);box-shadow:0 8px 30px rgba(230,57,70,.09);transform:translateY(-3px)}
+.kiptv-wrap .wi{width:50px;height:50px;min-width:50px;background:var(--red-t);border:1px solid rgba(230,57,70,.18);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.35rem}
+.kiptv-wrap .wc h3{margin-bottom:7px;font-size:1.03rem}
+.kiptv-wrap .wc p{font-size:.9rem}
+
+.kiptv-wrap .sf-grid{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kiptv-wrap .sf-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:30px 22px;transition:all .3s ease}
+.kiptv-wrap .sf-card:hover{border-color:var(--red-b);box-shadow:0 8px 28px rgba(230,57,70,.09);transform:translateY(-4px)}
+.kiptv-wrap .sfi{width:44px;height:44px;background:var(--red-t);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.25rem}
+.kiptv-wrap .sf-card h3{font-size:.96rem;margin-bottom:7px}
+.kiptv-wrap .sf-card p{font-size:.86rem;color:var(--t2)}
+
+.kiptv-wrap .dev-grid{max-width:var(--mw);margin:0 auto 36px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.kiptv-wrap .dev-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:28px 18px;text-align:center;transition:all .3s ease}
+.kiptv-wrap .dev-card:hover{border-color:var(--red-b);transform:translateY(-4px);box-shadow:0 8px 24px rgba(230,57,70,.09)}
+.kiptv-wrap .dev-icon{font-size:2rem;margin-bottom:12px;display:block}
+.kiptv-wrap .dev-card h4{font-size:.92rem;margin-bottom:3px}
+.kiptv-wrap .dev-card span{font-size:.78rem;color:var(--t3)}
+.kiptv-wrap .brands{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--border)}
+.kiptv-wrap .brand{font-size:.74rem;font-weight:700;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.kiptv-wrap .brand:hover{color:var(--t2)}
+
+.kiptv-wrap .cmp-table{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:56px}
+.kiptv-wrap .cmp-col{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:32px 24px}
+.kiptv-wrap .cmp-col.feat{background:var(--card2);border-color:var(--red-b);box-shadow:0 0 40px rgba(230,57,70,.12);position:relative}
+.kiptv-wrap .cmp-col.feat::before{content:'Bäst val';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:.69rem;font-weight:700;padding:4px 14px;border-radius:50px;letter-spacing:.06em;white-space:nowrap}
+.kiptv-wrap .cmp-col h3{font-size:.86rem;color:var(--t3);font-weight:600;margin-bottom:4px}
+.kiptv-wrap .cmp-col.feat h3{color:var(--red)}
+.kiptv-wrap .cmp-price{font-size:1.65rem;font-weight:800;margin:6px 0 22px;color:var(--t1)}
+.kiptv-wrap .cmp-col.feat .cmp-price{color:var(--red)}
+.kiptv-wrap .cmp-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.kiptv-wrap .cmp-list li{display:flex;align-items:flex-start;gap:8px;font-size:.87rem;color:var(--t2)}
+.kiptv-wrap .ci{font-weight:700;flex-shrink:0;font-size:.82rem}
+.kiptv-wrap .ci.x{color:#ef4444}.kiptv-wrap .ci.v{color:var(--green)}
+.kiptv-wrap .cmp-btn{display:block;text-align:center;margin-top:26px;padding:13px;border-radius:50px;font-weight:700;font-size:.9rem;background:var(--red);color:#fff;transition:all .25s ease}
+.kiptv-wrap .cmp-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(230,57,70,.4)}
+.kiptv-wrap .cmp-note{text-align:center;margin-top:16px;font-size:.77rem;color:var(--t3)}
+.kiptv-wrap .cmp-note a{color:var(--t3);text-decoration:underline;text-underline-offset:3px}
+.kiptv-wrap .cmp-note a:hover{color:var(--t2)}
+
+.kiptv-wrap .price-meta{text-align:center;font-size:.92rem;color:var(--t3);max-width:580px;margin:0 auto 44px}
+.kiptv-wrap .price-grid{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start}
+.kiptv-wrap .pc{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:30px 22px;position:relative;transition:all .3s ease;display:flex;flex-direction:column}
+.kiptv-wrap .pc:hover{border-color:var(--bh);transform:translateY(-4px)}
+.kiptv-wrap .pc.pop{background:var(--card2);border-color:var(--red-b);box-shadow:0 0 50px rgba(230,57,70,.18);transform:translateY(-10px)}
+.kiptv-wrap .pc.pop:hover{transform:translateY(-14px);box-shadow:0 0 60px rgba(230,57,70,.25)}
+.kiptv-wrap .pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:.68rem;font-weight:700;padding:5px 14px;border-radius:50px;letter-spacing:.08em;white-space:nowrap}
+.kiptv-wrap .save-tag{display:inline-block;background:rgba(230,57,70,.1);color:var(--red);border:1px solid rgba(230,57,70,.22);border-radius:6px;font-size:.7rem;font-weight:700;padding:3px 10px;margin-bottom:10px;letter-spacing:.04em}
+.kiptv-wrap .p-dur{font-size:.79rem;color:var(--t3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+.kiptv-wrap .p-price{display:flex;align-items:flex-end;gap:3px;margin:6px 0 2px}
+.kiptv-wrap .p-cur{font-size:1rem;font-weight:700;padding-bottom:7px;color:var(--t2)}
+.kiptv-wrap .p-amt{font-size:2.7rem;font-weight:800;line-height:1;letter-spacing:-.02em}
+.kiptv-wrap .p-mo{font-size:.78rem;color:var(--t3);margin-bottom:20px}
+.kiptv-wrap .p-mo strong{color:var(--green)}
+.kiptv-wrap .p-feats{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px;flex:1}
+.kiptv-wrap .p-feats li{display:flex;align-items:flex-start;gap:7px;font-size:.84rem;color:var(--t2)}
+.kiptv-wrap .pfc{color:var(--green);font-weight:700;flex-shrink:0;font-size:.8rem}
+.kiptv-wrap .price-note{text-align:center;margin-top:36px;font-size:.82rem;color:var(--t3);display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;max-width:var(--mw);margin-left:auto;margin-right:auto}
+
+.kiptv-wrap .pay-inner{max-width:680px;margin:0 auto;text-align:center}
+.kiptv-wrap .pay-inner h2{font-size:1.45rem;margin-bottom:8px}
+.kiptv-wrap .pay-inner>p{font-size:.9rem;margin-bottom:30px}
+.kiptv-wrap .pay-methods{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.kiptv-wrap .pay-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:18px 26px;display:flex;flex-direction:column;align-items:center;gap:7px;min-width:96px;transition:all .25s ease}
+.kiptv-wrap .pay-card:hover{border-color:var(--red-b);transform:translateY(-2px)}
+.kiptv-wrap .pay-icon{font-size:1.5rem}
+.kiptv-wrap .pay-lbl{font-size:.78rem;font-weight:600;color:var(--t2)}
+.kiptv-wrap .trust-badges{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+.kiptv-wrap .tbadge{display:flex;align-items:center;gap:6px;font-size:.79rem;color:var(--t3);font-weight:600}
+
+.kiptv-wrap .stats-row{max-width:var(--mw);margin:0 auto 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kiptv-wrap .stat-box{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:30px 18px;text-align:center;transition:border-color .3s ease}
+.kiptv-wrap .stat-box:hover{border-color:var(--red-b)}
+.kiptv-wrap .snum{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--red);display:block;margin-bottom:5px}
+.kiptv-wrap .slbl{font-size:.83rem;color:var(--t3)}
+.kiptv-wrap .t-grid{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.kiptv-wrap .t-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:26px 22px;transition:all .3s ease;display:flex;flex-direction:column;gap:14px}
+.kiptv-wrap .t-card:hover{border-color:rgba(255,255,255,.12);transform:translateY(-3px)}
+.kiptv-wrap .t-stars{color:#f59e0b;font-size:.95rem;letter-spacing:1px}
+.kiptv-wrap .t-quote{font-size:.91rem;line-height:1.72;color:var(--t2);flex:1;font-style:italic}
+.kiptv-wrap .t-author{display:flex;align-items:center;gap:11px}
+.kiptv-wrap .t-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.88rem;color:#fff;flex-shrink:0}
+.kiptv-wrap .av1{background:linear-gradient(135deg,#e63946,#c1121f)}
+.kiptv-wrap .av2{background:linear-gradient(135deg,#7c3aed,#4c1d95)}
+.kiptv-wrap .av3{background:linear-gradient(135deg,#0891b2,#0e7490)}
+.kiptv-wrap .av4{background:linear-gradient(135deg,#059669,#047857)}
+.kiptv-wrap .t-name{font-size:.88rem;font-weight:700;margin-bottom:2px}
+.kiptv-wrap .t-ver{font-size:.75rem;color:var(--green)}
+.kiptv-wrap .test-cta{text-align:center;margin-top:44px;max-width:var(--mw);margin-left:auto;margin-right:auto}
+
+.kiptv-wrap .how-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:72px;align-items:center}
+.kiptv-wrap .how-step{display:flex;gap:20px;position:relative;padding-bottom:32px}
+.kiptv-wrap .how-step:last-child{padding-bottom:0}
+.kiptv-wrap .how-step:not(:last-child)::after{content:'';position:absolute;left:18px;top:44px;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(230,57,70,.6),transparent)}
+.kiptv-wrap .sn{width:38px;height:38px;min-width:38px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:800;color:#fff;position:relative;z-index:1;box-shadow:0 0 0 4px rgba(230,57,70,.15)}
+.kiptv-wrap .sc h3{font-size:1rem;margin-bottom:5px}
+.kiptv-wrap .sc p{font-size:.9rem}
+.kiptv-wrap .sc a{color:var(--red);font-weight:600}
+.kiptv-wrap .sc a:hover{text-decoration:underline;text-underline-offset:3px}
+.kiptv-wrap .how-cta-row{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
+.kiptv-wrap .how-visual{background:var(--bg);border:1px solid var(--border);border-radius:var(--rxl);overflow:hidden;display:flex;flex-direction:column}
+.kiptv-wrap .hv-screen{background:linear-gradient(135deg,#0a0a1a 0%,#0a1a0a 100%);padding:28px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.kiptv-wrap .hv-app{width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;transition:transform .3s}
+.kiptv-wrap .hv-app:hover{transform:scale(1.08)}
+.kiptv-wrap .app1{background:linear-gradient(135deg,#e50914,#b81c24)}
+.kiptv-wrap .app2{background:linear-gradient(135deg,#0063e5,#0041a8)}
+.kiptv-wrap .app3{background:linear-gradient(135deg,#00a8e0,#0078b8)}
+.kiptv-wrap .app4{background:linear-gradient(135deg,#1db954,#13843a)}
+.kiptv-wrap .hv-bar{background:var(--card2);padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.kiptv-wrap .hv-pill{background:rgba(230,57,70,.15);border:1px solid rgba(230,57,70,.3);border-radius:50px;padding:5px 12px;font-size:.75rem;color:var(--red);font-weight:600}
+.kiptv-wrap .hv-status{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--green)}
+.kiptv-wrap .hdot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:kpulse 2s ease-in-out infinite}
+
+.kiptv-wrap .faq-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:72px;align-items:start}
+.kiptv-wrap .faq-item{border:1px solid var(--border);border-radius:var(--r);margin-bottom:8px;overflow:hidden;transition:border-color .3s}
+.kiptv-wrap .faq-item.open{border-color:var(--red-b)}
+.kiptv-wrap .fq{width:100%;background:var(--card);border:none;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;text-align:left;color:var(--t1);font-size:.92rem;font-weight:600;transition:background .2s;font-family:inherit}
+.kiptv-wrap .fq:hover,.kiptv-wrap .faq-item.open .fq{background:var(--card2)}
+.kiptv-wrap .fi{width:22px;height:22px;min-width:22px;border-radius:50%;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .3s ease;font-size:.95rem;font-weight:700;color:var(--t3);line-height:1}
+.kiptv-wrap .faq-item.open .fi{background:var(--red);border-color:var(--red);color:#fff;transform:rotate(45deg)}
+.kiptv-wrap .fa{max-height:0;overflow:hidden;transition:max-height .4s ease;background:var(--card)}
+.kiptv-wrap .fa-inner{padding:0 22px 18px;font-size:.9rem;color:var(--t2);line-height:1.75}
+.kiptv-wrap .fa-inner a{color:var(--red);font-weight:600}
+.kiptv-wrap .fa-inner a:hover{text-decoration:underline;text-underline-offset:3px}
+.kiptv-wrap .faq-item.open .fa{max-height:600px}
+.kiptv-wrap .faq-aside{position:sticky;top:80px;background:var(--card);border:1px solid var(--border);border-radius:var(--rxl);overflow:hidden}
+.kiptv-wrap .fa-visual{background:linear-gradient(135deg,#100505 0%,#0a0a18 100%);padding:36px;display:flex;align-items:center;justify-content:center;font-size:4.5rem;min-height:160px}
+.kiptv-wrap .fa-body{padding:24px 22px}
+.kiptv-wrap .fa-body h3{margin-bottom:8px;font-size:1.02rem}
+.kiptv-wrap .fa-body p{font-size:.85rem;margin-bottom:18px}
+.kiptv-wrap .faq-link{display:block;text-align:center;font-size:.82rem;color:var(--t3);border-top:1px solid var(--border);padding-top:16px;margin-top:16px;transition:color .2s}
+.kiptv-wrap .faq-link:hover{color:var(--red)}
+
+.kiptv-wrap .ldot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:kpulse 1.5s ease-in-out infinite;flex-shrink:0;display:inline-block}
+
+.kiptv-wrap .sticky-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,8,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--border);padding:12px 24px;z-index:9999;transform:translateY(100%);transition:transform .4s ease}
+.kiptv-wrap .sticky-bar.vis{transform:translateY(0)}
+.kiptv-wrap .sticky-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.kiptv-wrap .sticky-txt{font-size:.92rem;font-weight:600;color:var(--t1)}
+.kiptv-wrap .sticky-txt small{display:block;font-size:.78rem;color:var(--t3);font-weight:400;margin-top:2px}
+.kiptv-wrap .sticky-actions{display:flex;align-items:center;gap:10px}
+
+@media(max-width:1024px){
+  .kiptv-wrap .what-inner{grid-template-columns:1fr;gap:40px}
+  .kiptv-wrap .what-right{position:static}
+  .kiptv-wrap .how-inner{grid-template-columns:1fr;gap:40px}
+  .kiptv-wrap .how-visual{max-width:480px}
+  .kiptv-wrap .faq-inner{grid-template-columns:1fr}
+  .kiptv-wrap .faq-aside{display:none}
+  .kiptv-wrap .price-grid{grid-template-columns:repeat(2,1fr)}
+  .kiptv-wrap .pc.pop{transform:none}
+  .kiptv-wrap .pc.pop:hover{transform:translateY(-4px)}
+}
+@media(max-width:768px){
+  .kiptv-wrap .prob-sec,.kiptv-wrap .what-sec,.kiptv-wrap .af-sec,.kiptv-wrap .dev-sec,.kiptv-wrap .price-sec,.kiptv-wrap .test-sec,.kiptv-wrap .faq-sec,
+  .kiptv-wrap .why-sec,.kiptv-wrap .cat-sec,.kiptv-wrap .sf-sec,.kiptv-wrap .cmp-sec,.kiptv-wrap .pay-sec,.kiptv-wrap .how-sec{padding:70px 18px}
+  .kiptv-wrap .prob-grid,.kiptv-wrap .why-grid,.kiptv-wrap .t-grid{grid-template-columns:1fr}
+  .kiptv-wrap .sf-grid,.kiptv-wrap .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .kiptv-wrap .dev-grid{grid-template-columns:repeat(2,1fr)}
+  .kiptv-wrap .cmp-table{grid-template-columns:1fr}
+  .kiptv-wrap .cmp-col:not(.feat){display:none}
+  .kiptv-wrap .stats-row{gap:10px}
+  .kiptv-wrap .sticky-txt small{display:none}
+  .kiptv-wrap .ts-div{display:none}
+}
+@media(max-width:560px){
+  .kiptv-wrap .hero-ctas{flex-direction:column;width:100%;max-width:320px;margin-left:auto;margin-right:auto}
+  .kiptv-wrap .hero-ctas .btn{width:100%}
+  .kiptv-wrap .price-grid{grid-template-columns:1fr}
+  .kiptv-wrap .sf-grid,.kiptv-wrap .cat-grid{grid-template-columns:1fr}
+  .kiptv-wrap .stats-row{grid-template-columns:1fr}
+  .kiptv-wrap .sticky-inner{flex-direction:column;gap:10px;text-align:center}
+  .kiptv-wrap .sticky-actions .btn-s{display:none}
+  .kiptv-wrap .hero-pills{gap:10px}
+}
+</style>
+
+<div class="kiptv-wrap" id="kiptv-wrap">
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge fu">
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+      #1 King IPTV i Sverige &nbsp;·&nbsp; 2026
+    </div>
+    <h1 class="fu d1">
+      Bästa <span class="acc">King IPTV</span> Sverige —<br>55&nbsp;000+ Kanaler i 4K utan lagg
+    </h1>
+    <p class="hero-sub fu d2">Trött på buffring och dyra TV-abonnemang? Med <strong>King IPTV</strong> streamar du live-sport, filmer och serier i HD &amp; 4K på alla dina enheter — stabil, snabb och utan bindningstid från 62&nbsp;kr/mån.</p>
+    <div class="hero-pills fu d2">
+      <span class="hp"><span class="hp-check">✓</span> 55&nbsp;000+ livekanaler</span>
+      <span class="hp"><span class="hp-check">✓</span> Live sport &amp; 4K filmer</span>
+      <span class="hp"><span class="hp-check">✓</span> Smart TV, mobil &amp; PC</span>
+    </div>
+    <div class="hero-ctas fu d3">
+      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-lg">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Testa Nu — Få Tillgång Direkt
+      </a>
+      <a href="#pricing" class="btn btn-s btn-lg">Se Priser</a>
+    </div>
+    <div class="hero-proof fu d4">
+      <span class="hproof">⭐ <strong>4.9/5</strong> betyg</span>
+      <span class="hproof">✓ <strong>11&nbsp;759+</strong> nöjda kunder</span>
+      <span class="hproof">⚡ <strong>Ingen</strong> buffring</span>
+    </div>
+  </div>
+</section>
+
+<div class="ts">
+  <div class="ts-inner">
+    <div class="ts-item">⭐ <strong>4.9/5</strong> genomsnittligt betyg</div>
+    <div class="ts-div" aria-hidden="true"></div>
+    <div class="ts-item">👥 <strong>11&nbsp;759+</strong> nöjda kunder</div>
+    <div class="ts-div" aria-hidden="true"></div>
+    <div class="ts-item">⚡ <strong>Aktivering</strong> inom 1–5 min</div>
+    <div class="ts-div" aria-hidden="true"></div>
+    <div class="ts-item">🔒 <strong>SSL 256-bit</strong> krypterad betalning</div>
+    <div class="ts-div" aria-hidden="true"></div>
+    <div class="ts-item">📺 <strong>Gratis test</strong> — ingen bindning</div>
+  </div>
+</div>
+
+<section class="prob-sec">
+  <div class="sec-head fu">
+    <span class="sec-label">Känner du igen dig?</span>
+    <h2>De problem <span class="acc">King IPTV</span> löser</h2>
+    <p>Tusentals svenska streamingkonsumenter kämpar varje dag med exakt samma tre problem. Så här ser det ut — och så löser King IPTV det en gång för alla.</p>
+  </div>
+  <div class="prob-grid">
+    <div class="prob-card fu d1">
+      <div class="picon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M1 6l4 4 4-4 4 4 4-4 4 4"/><path d="M1 18l4-4 4 4 4-4 4 4 4-4"/></svg>
+      </div>
+      <h3>Ständig buffering</h3>
+      <p>Traditionella IPTV-tjänster saknar stabil serverinfrastruktur. Under livesändningar — Champions League, Allsvenskan, UFC — fryser bilden precis när det händer saker. King IPTV eliminerar buffring med antifreeze-servrar och global CDN som alltid väljer den snabbaste routen till dig.</p>
+    </div>
+    <div class="prob-card fu d2">
+      <div class="picon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <h3>Dyra TV-abonnemang</h3>
+      <p>Kabel-TV och satellit i Sverige kostar 400–600 kr/mån och låser dig i 12–24 månaders kontrakt. Du betalar för paket med hundratals kanaler du aldrig tittar på. King IPTV ger dig 10× mer innehåll för en bråkdel av kostnaden — från 62 kr/mån utan bindningstid.</p>
+    </div>
+    <div class="prob-card fu d3">
+      <div class="picon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+      </div>
+      <h3>Begränsat utbud</h3>
+      <p>De flesta leverantörer erbjuder 50–200 kanaler och inget internationellt VOD-bibliotek. Vill du följa serier från HBO, titta på arabiska kanaler eller se indisk sport — då räcker det inte. King IPTV ger dig 55&nbsp;000+ livekanaler och 215&nbsp;000+ filmer &amp; serier på ett och samma ställe.</p>
+    </div>
+  </div>
+  <div class="prob-bridge fu">
+    <p>Det finns ett bättre alternativ. <strong>King IPTV löser alla tre problemen</strong> — till ett pris du kan unna dig varje månad.</p>
+    <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p">Prova King IPTV gratis</a>
+  </div>
+</section>
+
+<section class="what-sec">
+  <div class="what-inner">
+    <div class="what-left fu">
+      <span class="sec-label">Vad är King IPTV?</span>
+      <h2>Den nya generationens TV — <span class="acc">streaming utan gränser</span></h2>
+      <p>IPTV — Internet Protocol Television — levererar TV-kanaler, filmer och serier direkt via internet. Till skillnad från kabel och satellit behöver du ingen parabolantenn, ingen decoder och inget långt bindningsavtal. Du väljer vad du vill titta på, när du vill, på vilken enhet du föredrar.</p>
+      <p><strong>King IPTV</strong> är en av de ledande IPTV-tjänsterna i Sverige med 55&nbsp;000+ livekanaler i HD och 4K, 215&nbsp;000+ titlar på begäran och full support för alla populära enheter — Smart TV, Android, iOS, PC och streamingboxar som Amazon Firestick och MAG.</p>
+      <p>Vad gör King IPTV annorlunda jämfört med andra IPTV-abonnemang? Medan de flesta tjänster erbjuder instabil streaming, har King IPTV investerat i antifreeze-serverteknik och en global CDN-infrastruktur med noder nära svenska användare. Resultatet är en streamingupplevelse utan avbrott — oavsett om du följer en Allsvenskan-match på fredagskvällen eller streamar en 4K-film på söndagsmorgonen.</p>
+      <p>King IPTV Sverige är upp till <strong>90% billigare</strong> än traditionell kabel-TV och erbjuder mångdubbelt fler kanaler, inget krav på utrustning och 24/7-support via WhatsApp på svenska.</p>
+    </div>
+    <div class="what-right fu d2">
+      <h3 style="color:var(--t3);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px">King IPTV i siffror</h3>
+      <div class="kpi-row">
+        <div class="kpi-icon">📡</div>
+        <div class="kpi-text">
+          <strong>55&nbsp;000+ livekanaler</strong>
+          <span>Svenska, nordiska &amp; internationella</span>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-icon">🎬</div>
+        <div class="kpi-text">
+          <strong>215&nbsp;000+ filmer &amp; serier</strong>
+          <span>VOD-bibliotek uppdaterat varje vecka</span>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-icon">⚽</div>
+        <div class="kpi-text">
+          <strong>Live sport utan fördröjning</strong>
+          <span>Premier League, La Liga, NHL, UFC, F1</span>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-icon">⚡</div>
+        <div class="kpi-text">
+          <strong>99.9% drifttid</strong>
+          <span>Antifreeze-servrar &amp; global CDN</span>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-icon">📱</div>
+        <div class="kpi-text">
+          <strong>Alla enheter stöds</strong>
+          <span>Smart TV, Android, iOS, PC, MAG, Firestick</span>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-icon">💰</div>
+        <div class="kpi-text">
+          <strong>Fr. 62 kr/mån</strong>
+          <span>Ingen bindningstid, avbryt när som helst</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat-sec">
+  <div class="sec-head fu">
+    <span class="sec-label">Innehållskategorier</span>
+    <h2>Allt innehåll du vill ha — <span class="acc">samlat på ett ställe</span></h2>
+    <p>King IPTV täcker varje genre och smak. Från svenska morgonkanaler till internationell sport i 4K — ett abonnemang ger dig tillgång till allt.</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card fu d1">
+      <span class="cat-icon">🇸🇪</span>
+      <h3>Svenska kanaler</h3>
+      <p>SVT1, SVT2, TV4, Kanal 5, TV3, TV6 och hundratals regionala och lokala svenska kanaler i full HD. Se Melodifestivalen, Rapport och Rapport sport live.</p>
+      <span class="cat-tag">HD &amp; 4K</span>
+    </div>
+    <div class="cat-card fu d2">
+      <span class="cat-icon">⚽</span>
+      <h3>Live Sport</h3>
+      <p>Premier League, La Liga, Bundesliga, Allsvenskan, Champions League, NHL, SHL, UFC, Formel 1, tennis och mycket mer — utan fördröjning och utan dyra sport-tilläggspaket.</p>
+      <span class="cat-tag">Utan fördröjning</span>
+    </div>
+    <div class="cat-card fu d3">
+      <span class="cat-icon">🎬</span>
+      <h3>Filmer i 4K</h3>
+      <p>Över 215&nbsp;000 titlar — Hollywood-blockbusters, europeisk konstfilm, indiska Bollywood-produktioner och nya releaser veckan efter biosläppet. Nytt innehåll varje vecka.</p>
+      <span class="cat-tag">215&nbsp;000+ titlar</span>
+    </div>
+    <div class="cat-card fu d1">
+      <span class="cat-icon">🎭</span>
+      <h3>Serier &amp; Drama</h3>
+      <p>Senaste säsongerna från HBO, Netflix-originaler, Disney+-serier, Viaplay-drama och internationella succéserier — allt tillgängligt utan separata prenumerationer.</p>
+      <span class="cat-tag">Catch-up 7 dagar</span>
+    </div>
+    <div class="cat-card fu d2">
+      <span class="cat-icon">📰</span>
+      <h3>Nyheter &amp; Dokumentärer</h3>
+      <p>500+ nyhetskanaler dygnet runt — CNN, BBC World News, Al Jazeera, SVT Nyheter, Sky News och regionala nyheter på svenska, engelska, arabiska, franska och fler språk.</p>
+      <span class="cat-tag">500+ kanaler</span>
+    </div>
+    <div class="cat-card fu d3">
+      <span class="cat-icon">👶</span>
+      <h3>Barn &amp; Familj</h3>
+      <p>Tryggt barninnehåll på svenska och engelska — Bolibompa, Nickelodeon, Disney Channel, Cartoon Network och hundratals barnkanaler utan reklam och med föräldrakontroll.</p>
+      <span class="cat-tag">Familjevänligt</span>
+    </div>
+  </div>
+</section>
+
+<section class="why-sec">
+  <div class="con">
+    <div class="sec-head fu">
+      <span class="sec-label">Varför King IPTV</span>
+      <h2>Varför tusentals svenskar väljer <span class="acc">King IPTV</span></h2>
+      <p>King IPTV är byggt för svenska streaming-konsumenter som vill ha mer — mer innehåll, bättre kvalitet och lägre kostnad utan kompromisser.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fu d1">
+        <div class="wi">🎬</div>
+        <div class="wc">
+          <h3>All världens filmer — i din soffa</h3>
+          <p>Streama 215&nbsp;000+ filmer i HD &amp; 4K, från Hollywood till Bollywood. Nytt innehåll läggs till varje vecka — allt ingår i ditt abonnemang utan extra kostnad eller per-film-avgifter.</p>
+        </div>
+      </div>
+      <div class="why-card fu d2">
+        <div class="wi">📺</div>
+        <div class="wc">
+          <h3>Serier utan stopp, utan begränsningar</h3>
+          <p>Följ de senaste säsongerna från HBO, Disney+, Viaplay och fler på ett enda ställe. Catch-up-funktionen låter dig spola tillbaka upp till 7 dagar — aldrig missa ett avsnitt igen.</p>
+        </div>
+      </div>
+      <div class="why-card fu d3">
+        <div class="wi">⚽</div>
+        <div class="wc">
+          <h3>Sport live — varje match, varje mål</h3>
+          <p>Premier League, La Liga, Champions League, SHL, Allsvenskan, Formel 1, NHL och UFC — allt i realtid utan fördröjning och svartskärmar. Aldrig missa ett avgörande mål igen.</p>
+        </div>
+      </div>
+      <div class="why-card fu d4">
+        <div class="wi">📡</div>
+        <div class="wc">
+          <h3>Nyheter &amp; livekanaler på ditt språk</h3>
+          <p>500+ nyhetskanaler dygnet runt — svenska, engelska, arabiska, franska och fler. Från SVT Nyheter till Al Jazeera och CNN, allt tillgängligt direkt i din TV eller telefon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sf-sec">
+  <div class="sec-head fu">
+    <span class="sec-label">Ingår i varje abonnemang</span>
+    <h2>Allt du behöver i <span class="acc">ett enda abonnemang</span></h2>
+    <p>King IPTV erbjuder den mest kompletta streaming-upplevelsen för svenska konsumenter. Från live-sport till de senaste filmerna — allt ingår, inget kostar extra.</p>
+  </div>
+  <div class="sf-grid">
+    <div class="sf-card fu d1">
+      <div class="sfi">📡</div>
+      <h3>55&nbsp;000+ Livekanaler</h3>
+      <p>Svenska, nordiska och internationella kanaler i HD och 4K — uppdaterade i realtid utan fördröjning eller svartskärmar.</p>
+    </div>
+    <div class="sf-card fu d2">
+      <div class="sfi">🎥</div>
+      <h3>215&nbsp;000+ Filmer &amp; Serier</h3>
+      <p>Enormt VOD-bibliotek med filmer, serier och dokumentärer på begäran — nytt innehåll varje vecka, alla genrer.</p>
+    </div>
+    <div class="sf-card fu d3">
+      <div class="sfi">⚽</div>
+      <h3>Live Sport i 4K</h3>
+      <p>Premier League, La Liga, Champions League, SHL, Allsvenskan, UFC och Formel 1 — utan fördröjning och utan extra sportpaketsavgifter.</p>
+    </div>
+    <div class="sf-card fu d1">
+      <div class="sfi">⏪</div>
+      <h3>Catch-Up &amp; EPG</h3>
+      <p>Missat ett program? Spola tillbaka upp till 7 dagar med den smarta elektroniska programguiden och håll koll på alla sändningar.</p>
+    </div>
+    <div class="sf-card fu d2">
+      <div class="sfi">💬</div>
+      <h3>24/7 Support på svenska</h3>
+      <p>Vår svenska kundsupport är tillgänglig dygnet runt via WhatsApp, livechatt och e-post — svarstid under 15 minuter.</p>
+    </div>
+    <div class="sf-card fu d3">
+      <div class="sfi">⚡</div>
+      <h3>Enkel installation på 5 min</h3>
+      <p>Inget krångel, ingen teknisk kunskap krävs. Logga in med din spellista och börja streama på Smart TV, telefon eller PC direkt.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dev-sec">
+  <div class="sec-head fu">
+    <span class="sec-label">Kompatibla enheter</span>
+    <h2>King IPTV fungerar på <span class="acc">alla dina enheter</span></h2>
+    <p>En prenumeration — obegränsat antal enheter och skärmar. Streama hemma på TV:n, på bussen i telefonen eller på jobbet i webbläsaren.</p>
+  </div>
+  <div class="dev-grid">
+    <div class="dev-card fu d1">
+      <span class="dev-icon">📺</span>
+      <h4>Smart TV</h4>
+      <span>Samsung, LG, Sony, Hisense</span>
+    </div>
+    <div class="dev-card fu d2">
+      <span class="dev-icon">📱</span>
+      <h4>Android / iOS</h4>
+      <span>Telefon &amp; surfplatta</span>
+    </div>
+    <div class="dev-card fu d3">
+      <span class="dev-icon">💻</span>
+      <h4>PC / Mac</h4>
+      <span>Webbläsare &amp; dedikerad app</span>
+    </div>
+    <div class="dev-card fu d4">
+      <span class="dev-icon">📦</span>
+      <h4>Streamingbox</h4>
+      <span>Amazon Firestick, MAG, Formuler</span>
+    </div>
+  </div>
+  <div class="brands fu">
+    <span class="brand">Samsung</span>
+    <span class="brand">LG</span>
+    <span class="brand">Hisense</span>
+    <span class="brand">Xbox</span>
+    <span class="brand">PlayStation</span>
+    <span class="brand">Apple</span>
+    <span class="brand">Amazon</span>
+  </div>
+</section>
+
+<section class="cmp-sec">
+  <div class="sec-head fu">
+    <span class="sec-label">King IPTV vs traditionell TV</span>
+    <h2>Varför väljer allt fler svenskar <span class="acc">King IPTV</span>?</h2>
+    <p>Traditionell TV låser dig i dyra avtal med begränsat innehåll. King IPTV Sverige ger dig 10× mer kanaler och filmer för en tiondel av priset — utan bindningstid.</p>
+  </div>
+  <div class="cmp-table">
+    <div class="cmp-col fu d1">
+      <h3>Traditionell TV</h3>
+      <div class="cmp-price">400+ kr/mån</div>
+      <ul class="cmp-list">
+        <li><span class="ci x">✕</span> Begränsat kanalutbud</li>
+        <li><span class="ci x">✕</span> 12–24 mån bindningstid</li>
+        <li><span class="ci x">✕</span> Dolda avgifter &amp; tillägg</li>
+        <li><span class="ci x">✕</span> Bara en enhet hemma</li>
+        <li><span class="ci x">✕</span> Inga internationella kanaler</li>
+        <li><span class="ci x">✕</span> Dyrt sporttillägg krävs</li>
+      </ul>
+    </div>
+    <div class="cmp-col fu d2">
+      <h3>Kabel / Satellit</h3>
+      <div class="cmp-price">600+ kr/mån</div>
+      <ul class="cmp-list">
+        <li><span class="ci x">✕</span> Dyr utrustning krävs</li>
+        <li><span class="ci x">✕</span> Väderberoende signal</li>
+        <li><span class="ci x">✕</span> Begränsad flexibilitet</li>
+        <li><span class="ci x">✕</span> Extra kostnad för sport</li>
+        <li><span class="ci x">✕</span> Ingen VOD ingår</li>
+        <li><span class="ci x">✕</span> Svår installation</li>
+      </ul>
+    </div>
+    <div class="cmp-col feat fu d3">
+      <h3>King IPTV Sverige</h3>
+      <div class="cmp-price">fr. 62 kr/mån</div>
+      <ul class="cmp-list">
+        <li><span class="ci v">✓</span> 55&nbsp;000+ kanaler i HD &amp; 4K</li>
+        <li><span class="ci v">✓</span> Ingen bindningstid</li>
+        <li><span class="ci v">✓</span> Smart TV, mobil &amp; PC</li>
+        <li><span class="ci v">✓</span> Live sport ingår alltid</li>
+        <li><span class="ci v">✓</span> 215&nbsp;000+ filmer &amp; serier</li>
+        <li><span class="ci v">✓</span> Support 24/7 via WhatsApp</li>
+      </ul>
+      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="cmp-btn">Starta King IPTV nu 🚀</a>
+    </div>
+  </div>
+  <p class="cmp-note fu">Jämför gärna även med andra nordiska IPTV-alternativ: <a href="https://vikiniptv.fi/" target="_blank" rel="noopener noreferrer">Viking IPTV</a> &amp; <a href="https://nordiciptvking.se/" target="_blank" rel="noopener noreferrer">Nordic IPTV King</a> — King IPTV erbjuder bäst pris och kanalutbud för svenska användare.</p>
+</section>
+
+<section class="price-sec" id="pricing">
+  <div class="sec-head fu">
+    <span class="sec-label">Priser och planer</span>
+    <h2>Välj ditt <span class="acc">King IPTV</span>-abonnemang</h2>
+  </div>
+  <p class="price-meta fu">Gå med i 11&nbsp;759+ nöjda kunder som redan streamar med King IPTV. Alla planer inkluderar 55&nbsp;000+ kanaler, live sport och 215&nbsp;000+ filmer — utan bindningstid.</p>
+  <div class="price-grid">
+    <div class="pc fu d1">
+      <div class="p-dur">3 månader</div>
+      <div class="p-price">
+        <span class="p-cur">kr</span>
+        <span class="p-amt">399</span>
+      </div>
+      <div class="p-mo">133 kr/mån</div>
+      <ul class="p-feats">
+        <li><span class="pfc">✓</span> 55&nbsp;000+ livekanaler</li>
+        <li><span class="pfc">✓</span> 215&nbsp;000+ filmer &amp; serier</li>
+        <li><span class="pfc">✓</span> Live sport &amp; evenemang</li>
+        <li><span class="pfc">✓</span> M3U, MAG &amp; Enigma</li>
+        <li><span class="pfc">✓</span> Alla enheter stöds</li>
+        <li><span class="pfc">✓</span> 24/7 kundsupport</li>
+      </ul>
+      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-s btn-full">Abonnera</a>
+    </div>
+    <div class="pc fu d2">
+      <div class="save-tag">SPARA 13%</div>
+      <div class="p-dur">6 månader</div>
+      <div class="p-price">
+        <span class="p-cur">kr</span>
+        <span class="p-amt">699</span>
+      </div>
+      <div class="p-mo"><strong>116 kr/mån</strong> — spara 97 kr</div>
+      <ul class="p-feats">
+        <li><span class="pfc">✓</span> 55&nbsp;000+ livekanaler</li>
+        <li><span class="pfc">✓</span> 215&nbsp;000+ filmer &amp; serier</li>
+        <li><span class="pfc">✓</span> Live sport &amp; evenemang</li>
+        <li><span class="pfc">✓</span> M3U, MAG &amp; Enigma</li>
+        <li><span class="pfc">✓</span> Alla enheter stöds</li>
+        <li><span class="pfc">✓</span> 24/7 kundsupport</li>
+      </ul>
+      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-s btn-full">Abonnera</a>
+    </div>
+    <div class="pc pop fu d3">
+      <div class="pop-badge">⭐ Mest populär</div>
+      <div class="save-tag">SPARA 44%</div>
+      <div class="p-dur">12 månader</div>
+      <div class="p-price">
+        <span class="p-cur">kr</span>
+        <span class="p-amt">899</span>
+      </div>
+      <div class="p-mo"><strong>75 kr/mån</strong> — spara 697 kr</div>
+      <ul class="p-feats">
+        <li><span class="pfc">✓</span> 55&nbsp;000+ livekanaler</li>
+        <li><span class="pfc">✓</span> 215&nbsp;000+ filmer &amp; serier</li>
+        <li><span class="pfc">✓</span> Live sport &amp; evenemang</li>
+        <li><span class="pfc">✓</span> M3U, MAG &amp; Enigma</li>
+        <li><span class="pfc">✓</span> Alla enheter stöds</li>
+        <li><span class="pfc">✓</span> 24/7 kundsupport</li>
+      </ul>
+      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-full">Abonnera nu</a>
+    </div>
+    <div class="pc fu d4">
+      <div class="save-tag">BÄST PRIS — SPARA 53%</div>
+      <div class="p-dur">24 månader</div>
+      <div class="p-price">
+        <span class="p-cur">kr</span>
+        <span class="p-amt">1499</span>
+      </div>
+      <div class="p-mo"><strong>62 kr/mån</strong> — spara 1&nbsp;693 kr</div>
+      <ul class="p-feats">
+        <li><span class="pfc">✓</span> 55&nbsp;000+ livekanaler</li>
+        <li><span class="pfc">✓</span> 215&nbsp;000+ filmer &amp; serier</li>
+        <li><span class="pfc">✓</span> Live sport &amp; evenemang</li>
+        <li><span class="pfc">✓</span> M3U, MAG &amp; Enigma</li>
+        <li><span class="pfc">✓</span> Alla enheter stöds</li>
+        <li><span class="pfc">✓</span> 24/7 kundsupport</li>
+      </ul>
+      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-s btn-full">Abonnera</a>
+    </div>
+  </div>
+  <div class="price-note fu">
+    <span>✓ Ingen bindningstid</span>
+    <span>✓ Gratis test innan köp</span>
+    <span>✓ Aktivering inom 5 min</span>
+    <span>✓ Avbryt när som helst</span>
+  </div>
+</section>
+
+<section class="pay-sec">
+  <div class="pay-inner fu">
+    <h2>Säker betalning</h2>
+    <p>Betala snabbt och säkert via ditt föredragna betalningssätt — din order aktiveras automatiskt direkt efter genomförd betalning.</p>
+    <div class="pay-methods">
+      <div class="pay-card">
+        <span class="pay-icon">💳</span>
+        <span class="pay-lbl">Kort</span>
+      </div>
+      <div class="pay-card">
+        <span class="pay-icon">🅿️</span>
+        <span class="pay-lbl">PayPal</span>
+      </div>
+      <div class="pay-card">
+        <span class="pay-icon">₿</span>
+        <span class="pay-lbl">Krypto</span>
+      </div>
+      <div class="pay-card">
+        <span class="pay-icon">🏦</span>
+        <span class="pay-lbl">Bank</span>
+      </div>
+    </div>
+    <div class="trust-badges">
+      <span class="tbadge">🔒 SSL 256-bit kryptering</span>
+      <span class="tbadge">🛡️ Säker betalning</span>
+      <span class="tbadge">👤 GDPR-skyddad data</span>
+    </div>
+  </div>
+</section>
+
+<section class="test-sec">
+  <div class="sec-head fu">
+    <span class="sec-label">Från våra nöjda kunder</span>
+    <h2>Vad svenska kunder säger om <span class="acc">King IPTV</span></h2>
+    <p>Äkta recensioner från riktiga kunder i Sverige. King IPTV levererar det vi lovar — stabil streaming, bra pris och support som faktiskt svarar.</p>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box fu d1">
+      <span class="snum" data-target="4.9" data-decimal="1">4.9</span>
+      <span class="slbl">⭐ Genomsnittligt betyg</span>
+    </div>
+    <div class="stat-box fu d2">
+      <span class="snum" data-target="11759" data-suffix="+">11&nbsp;759+</span>
+      <span class="slbl">Nöjda kunder i Sverige</span>
+    </div>
+    <div class="stat-box fu d3">
+      <span class="snum" data-target="99.9" data-decimal="1" data-suffix="%">99.9%</span>
+      <span class="slbl">Drifttid garanterad</span>
+    </div>
+  </div>
+  <div class="t-grid">
+    <div class="t-card fu d1">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"Jag har testat fem olika IPTV-tjänster och King IPTV är överlägsen alla andra. Stabil bild, inga avbrott ens under Champions League-finalen. Supporten svarade på under 10 minuter när jag hade en fråga om installationen."</p>
+      <div class="t-author">
+        <div class="t-av av1">M</div>
+        <div>
+          <div class="t-name">Marcus A., Stockholm</div>
+          <div class="t-ver">✓ Verifierad kund · 12-mån abonnemang</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-card fu d2">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"Enkel installation och fantastisk kvalitet. Jag fick min spellista via e-post på 3 minuter och var igång på min Samsung-TV direkt. Laddade ner appen och det fungerade perfekt. Aldrig gått tillbaka till kabel."</p>
+      <div class="t-author">
+        <div class="t-av av2">J</div>
+        <div>
+          <div class="t-name">Jennifer L., Göteborg</div>
+          <div class="t-ver">✓ Verifierad kund · 6-mån abonnemang</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-card fu d3">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"Perfekt för oss som är sport-familj. Vi följer Premier League, La Liga och SHL — alla matcher i 4K utan en enda buffring. Har haft tjänsten i 8 månader nu och hade en kortare teknisk fråga som löstes via WhatsApp på 5 minuter."</p>
+      <div class="t-author">
+        <div class="t-av av3">D</div>
+        <div>
+          <div class="t-name">David E., Malmö</div>
+          <div class="t-ver">✓ Verifierad kund · 24-mån abonnemang</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-card fu d4">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"King IPTV är bästa investeringen för hela familjen. Barnen har svenska barnkanaler, mannen har all sport och jag följer serier från HBO och Viaplay — utan att behöva fyra separata prenumerationer. Sparar minst 400 kr i månaden jämfört med det vi hade."</p>
+      <div class="t-author">
+        <div class="t-av av4">S</div>
+        <div>
+          <div class="t-name">Sara K., Uppsala</div>
+          <div class="t-ver">✓ Verifierad kund · 12-mån abonnemang</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="test-cta fu">
+    <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-lg">🔥 Testa King IPTV nu</a>
+  </div>
+</section>
+
+<section class="how-sec">
+  <div class="how-inner">
+    <div class="fu">
+      <span class="sec-label">Så fungerar det</span>
+      <h2>Kom igång med <span class="acc">King IPTV</span> på bara några minuter</h2>
+      <div style="margin-top:36px">
+        <div class="how-step">
+          <div class="sn">1</div>
+          <div class="sc">
+            <h3>Välj ett abonnemang</h3>
+            <p>Välj det <a href="https://www.kingiptv.se/iptv-abonnemang/">King IPTV-abonnemang</a> som passar dig bäst — 3, 6, 12 eller 24 månader. Alla planer inkluderar gratis test och samma fullständiga kanalutbud.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="sn">2</div>
+          <div class="sc">
+            <h3>Aktivera direkt</h3>
+            <p>Din inloggning och spellista skickas automatiskt via e-post inom 1–5 minuter efter betalning. Inga väntetider, ingen manuell behandling — systemet aktiverar direkt.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="sn">3</div>
+          <div class="sc">
+            <h3>Börja streama</h3>
+            <p>Installera en kompatibel spelare-app (IPTV Smarters, TiviMate, Perfect Player) och ange din spellista — klart på under 5 minuter. Behöver du hjälp finns vår <a href="https://www.kingiptv.se/tutorial/">detaljerade installationsguide</a> tillgänglig dygnet runt.</p>
+          </div>
+        </div>
+      </div>
+      <div class="how-cta-row">
+        <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p">Starta nu</a>
+        <a href="https://www.kingiptv.se/tutorial/" class="btn btn-s">Se installationsguide</a>
+      </div>
+    </div>
+    <div class="how-visual fu d2">
+      <div class="hv-screen">
+        <div class="hv-app app1">▶</div>
+        <div class="hv-app app2">▶</div>
+        <div class="hv-app app3">▶</div>
+        <div class="hv-app app4">▶</div>
+      </div>
+      <div class="hv-bar">
+        <div class="hv-pill">King IPTV · Live</div>
+        <div class="hv-status"><span class="hdot"></span> 55&nbsp;000+ kanaler aktiva</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec">
+  <div class="faq-inner">
+    <div>
+      <span class="sec-label">Vanliga frågor</span>
+      <h2 style="margin-bottom:8px">FAQ — <span class="acc">King IPTV</span></h2>
+      <p style="margin-bottom:32px">Allt du behöver veta innan du börjar streama. <a href="https://www.kingiptv.se/faq/" style="color:var(--red);font-weight:600">Se fullständig FAQ →</a></p>
+      <div class="faq-list">
+
+        <div class="faq-item open">
+          <button class="fq" aria-expanded="true">
+            Hur får jag mina King IPTV-uppgifter efter köp?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">Efter betalning skickas din inloggning och spellista automatiskt via e-post inom 1–5 minuter. Du behöver inte vänta på manuell hantering. Om du inte hittar e-postmeddelandet — kontrollera skräpkorgen eller kontakta oss direkt via WhatsApp så hjälper vi dig omedelbart och kostnadsfritt.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="fq" aria-expanded="false">
+            Vilka kanaler och vilket innehåll ingår i King IPTV?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">King IPTV ger tillgång till 55&nbsp;000+ livekanaler och 215&nbsp;000+ filmer och serier. Det inkluderar svenska kanaler (SVT, TV4, Kanal 5), nordiska kanaler, live sport (Premier League, La Liga, NHL, UFC), internationella nyhetskanaler (CNN, BBC, Al Jazeera) och ett enormt VOD-bibliotek med filmer och serier på svenska, engelska, arabiska, franska och fler språk.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="fq" aria-expanded="false">
+            Vilka enheter är kompatibla med King IPTV?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">King IPTV fungerar på i princip alla moderna enheter: Smart TV (Samsung, LG, Sony, Hisense), Android-telefoner och -surfplattor, iPhone och iPad (iOS), Amazon Firestick och Fire TV, MAG-boxar, Formuler, PC och Mac via webbläsare eller app. Du behöver ingen extra box. Följ vår <a href="https://www.kingiptv.se/tutorial/">steg-för-steg-installationsguide</a> för din specifika enhet.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="fq" aria-expanded="false">
+            Kan jag testa King IPTV gratis innan jag köper?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">Ja — vi erbjuder ett gratis test för nya kunder utan att du behöver ange kreditkortsuppgifter. Du kan testa streamingkvaliteten, kanaler och sport direkt på din enhet innan du väljer ett abonnemang. Klicka på knappen "Starta gratis test nu" och följ instruktionerna.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="fq" aria-expanded="false">
+            Vilken internethastighet behöver jag för stabil streaming?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">För HD-innehåll rekommenderas minst 10 Mbps och för 4K-streaming rekommenderas 25 Mbps. De allra flesta svenska bredbandsanslutningar klarar detta med god marginal. King IPTV:s antifreeze-teknik och adaptiva bitrate säkerställer dessutom jämn kvalitet även om din anslutning varierar under en match eller film.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="fq" aria-expanded="false">
+            Hur många enheter kan streama samtidigt med mitt King IPTV-konto?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">Standardabonnemang inkluderar upp till 3 simultana streams — vilket innebär att tre familjemedlemmar kan titta på olika kanaler på samma gång. Behöver du fler parallella anslutningar, kontakta vår support via WhatsApp så hittar vi en lösning som passar din hushållssituation.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="fq" aria-expanded="false">
+            Vilka betalningsmetoder accepteras?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">Vi accepterar kortbetalningar (Visa, Mastercard), PayPal, kryptovalutor (Bitcoin, Ethereum) och banköverföring. Alla betalningar hanteras via SSL 256-bit krypterade och GDPR-kompatibla gateways. Din finansiella information lagras aldrig hos oss — den hanteras direkt av betalningsleverantören.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="fq" aria-expanded="false">
+            Behöver jag en VPN för att använda King IPTV i Sverige?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">Nej — King IPTV fungerar utan VPN direkt med din svenska internetanslutning. Tjänsten är tekniskt tillgänglig via alla standardanslutningar utan krav på extra konfiguration. En VPN kan i vissa fall till och med försämra streamingkvaliteten på grund av extra latens, så det rekommenderas inte.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="fq" aria-expanded="false">
+            Vad är skillnaden mellan King IPTV och traditionell kabel-TV?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">Kabel-TV kräver fysisk infrastruktur (kabelanslutning eller parabol), långa bindningsavtal och kostar 400–600 kr/mån med begränsat kanalutbud. King IPTV levereras via internet, kräver inga installationer, har ingen bindningstid och kostar från 62 kr/mån — med 55&nbsp;000+ kanaler och 215&nbsp;000+ filmer inkluderade. Det är enkelt sagt TV-distribution för framtiden.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="fq" aria-expanded="false">
+            Finns det fler IPTV-alternativ i Norden?
+            <span class="fi" aria-hidden="true">+</span>
+          </button>
+          <div class="fa" role="region">
+            <div class="fa-inner">Det finns ett antal IPTV-leverantörer i Norden, bland annat <a href="https://vikiniptv.fi/" target="_blank" rel="noopener noreferrer">Viking IPTV</a> i Finland och <a href="https://nordiciptvking.se/" target="_blank" rel="noopener noreferrer">Nordic IPTV King</a>. King IPTV utmärker sig med det bredaste kanalutbudet (55&nbsp;000+), lägst pris för svenska användare (fr. 62 kr/mån), snabbast aktivering (1–5 min) och svensk-språkig support dygnet runt — vilket gör King IPTV till det naturliga förstavalet i Sverige.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="faq-aside fu">
+      <div class="fa-visual">📡</div>
+      <div class="fa-body">
+        <h3>Redo att testa King IPTV?</h3>
+        <p>Gratis test, ingen bindning. Kom igång på 5 minuter direkt från din enhet.</p>
+        <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p btn-full">Starta gratis test</a>
+        <a href="https://www.kingiptv.se/faq/" class="faq-link">Visa alla frågor →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sticky-bar" id="kiptv-sticky" role="complementary" aria-label="Snabborder King IPTV">
+  <div class="sticky-inner">
+    <div class="sticky-txt">
+      King IPTV — fr. 62 kr/mån
+      <small>55&nbsp;000+ kanaler · Ingen bindningstid · Gratis test</small>
+    </div>
+    <div class="sticky-actions">
+      <a href="#pricing" class="btn btn-s" style="padding:11px 22px;font-size:.84rem">Se priser</a>
+      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p" style="padding:11px 22px;font-size:.84rem">Testa gratis nu</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hur får jag mina King IPTV-uppgifter efter köp?","acceptedAnswer":{"@type":"Answer","text":"Efter betalning skickas din inloggning och spellista automatiskt via e-post inom 1–5 minuter."}},{"@type":"Question","name":"Vilka kanaler och vilket innehåll ingår i King IPTV?","acceptedAnswer":{"@type":"Answer","text":"King IPTV ger tillgång till 55 000+ livekanaler och 215 000+ filmer och serier, inklusive svenska kanaler, live sport och internationellt innehåll."}},{"@type":"Question","name":"Vilka enheter är kompatibla med King IPTV?","acceptedAnswer":{"@type":"Answer","text":"King IPTV fungerar på Smart TV, Android, iOS, Amazon Firestick, MAG, Formuler, PC och Mac. Ingen extra box krävs."}},{"@type":"Question","name":"Kan jag testa King IPTV gratis innan jag köper?","acceptedAnswer":{"@type":"Answer","text":"Ja — vi erbjuder ett gratis test för nya kunder utan kreditkortsuppgifter."}},{"@type":"Question","name":"Vilken internethastighet behöver jag?","acceptedAnswer":{"@type":"Answer","text":"Minst 10 Mbps för HD och 25 Mbps för 4K-innehåll rekommenderas."}},{"@type":"Question","name":"Hur många enheter kan streama samtidigt?","acceptedAnswer":{"@type":"Answer","text":"Standardabonnemang stödjer upp till 3 simultana streams."}},{"@type":"Question","name":"Vilka betalningsmetoder accepteras?","acceptedAnswer":{"@type":"Answer","text":"Vi accepterar Visa, Mastercard, PayPal, kryptovalutor och banköverföring via SSL 256-bit krypterade gateways."}},{"@type":"Question","name":"Behöver jag en VPN för att använda King IPTV i Sverige?","acceptedAnswer":{"@type":"Answer","text":"Nej — King IPTV fungerar utan VPN direkt med din svenska internetanslutning."}},{"@type":"Question","name":"Vad är skillnaden mellan King IPTV och traditionell kabel-TV?","acceptedAnswer":{"@type":"Answer","text":"King IPTV levereras via internet utan bindningsavtal från 62 kr/mån med 55 000+ kanaler. Kabel-TV kräver hårdvara, bindningstid och kostar 400–600 kr/mån."}},{"@type":"Question","name":"Finns det fler IPTV-alternativ i Norden?","acceptedAnswer":{"@type":"Answer","text":"Det finns alternativ som Viking IPTV och Nordic IPTV King, men King IPTV har det bredaste kanalutbudet och lägst pris för svenska användare."}}]}
+</script>
+
+<script>
+(function(){
+  var wrap=document.getElementById('kiptv-wrap');
+  if(!wrap)return;
+
+  var io=new IntersectionObserver(function(e){
+    e.forEach(function(n){if(n.isIntersecting){n.target.classList.add('vis');io.unobserve(n.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  wrap.querySelectorAll('.fu').forEach(function(el){io.observe(el);});
+
+  var sticky=document.getElementById('kiptv-sticky');
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(!tick){requestAnimationFrame(function(){sticky.classList[window.scrollY>500?'add':'remove']('vis');tick=false;});tick=true;}
+  },{passive:true});
+
+  var items=wrap.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    item.querySelector('.fq').addEventListener('click',function(){
+      var open=item.classList.contains('open');
+      items.forEach(function(i){i.classList.remove('open');i.querySelector('.fq').setAttribute('aria-expanded','false');});
+      if(!open){item.classList.add('open');this.setAttribute('aria-expanded','true');}
+    });
+  });
+
+  var cio=new IntersectionObserver(function(e){
+    e.forEach(function(n){
+      if(!n.isIntersecting)return;
+      var el=n.target,tgt=parseFloat(el.dataset.target),dec=parseInt(el.dataset.decimal||0),sfx=el.dataset.suffix||'',t0=null;
+      (function step(ts){
+        if(!t0)t0=ts;
+        var p=Math.min((ts-t0)/1800,1),v=tgt*(1-Math.pow(1-p,3));
+        el.textContent=(dec?v.toFixed(dec):Math.floor(v).toLocaleString('sv-SE'))+sfx;
+        if(p<1)requestAnimationFrame(step);
+        else el.textContent=(dec?tgt.toFixed(dec):tgt.toLocaleString('sv-SE'))+sfx;
+      })(performance.now());
+      cio.unobserve(el);
+    });
+  },{threshold:.5});
+  wrap.querySelectorAll('.snum[data-target]').forEach(function(c){cio.observe(c);});
+
+  wrap.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var t=document.getElementById(a.getAttribute('href').slice(1));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+})();
+</script>
