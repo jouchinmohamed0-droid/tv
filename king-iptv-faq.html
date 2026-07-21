@@ -1,0 +1,1208 @@
+<style>
+.kfaq*,.kfaq*::before,.kfaq*::after{box-sizing:border-box;margin:0;padding:0}
+.kfaq{
+  --red:#FF3131;--rd:#cc0000;--rg:rgba(255,49,49,.18);--rb:rgba(255,49,49,.35);--rt:rgba(255,49,49,.09);
+  --blue:#026AA4;--bd:#015888;--bg-blue:rgba(2,106,164,.12);--bb:rgba(2,106,164,.35);
+  --bg:#080808;--c1:#111113;--c2:#161618;
+  --br:rgba(255,255,255,.07);--bh:rgba(255,255,255,.13);--grn:#22c55e;--gld:#f59e0b;
+  --t1:#fff;--t2:rgba(255,255,255,.68);--t3:rgba(255,255,255,.42);--t4:rgba(255,255,255,.25);
+  --r:12px;--rl:18px;--rx:24px;--mw:1000px;
+  font-family:inherit;color:var(--t1);background:var(--bg);width:100%;overflow-x:hidden;line-height:1.6;
+}
+.kfaq h1,.kfaq h2,.kfaq h3,.kfaq h4{line-height:1.2;font-weight:700;color:var(--t1)}
+.kfaq h1{font-size:clamp(2rem,4.8vw,3.4rem);font-weight:800;letter-spacing:-.02em}
+.kfaq h2{font-size:clamp(1.4rem,3.2vw,2rem);letter-spacing:-.01em}
+.kfaq h3{font-size:clamp(.97rem,1.8vw,1.12rem)}
+.kfaq p{color:var(--t2);font-size:.97rem;line-height:1.72}
+.kfaq a{text-decoration:none}
+.kfaq strong{color:var(--t1)}
+.kfaq .acc{color:var(--red)}
+.kfaq .con{max-width:var(--mw);margin:0 auto;padding:0 24px}
+.kfaq .slbl{display:inline-block;font-size:.69rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+
+/* BUTTONS */
+.kfaq .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:50px;font-size:.93rem;font-weight:700;cursor:pointer;text-decoration:none;border:none;transition:all .25s ease;white-space:nowrap;line-height:1;font-family:inherit}
+.kfaq .btn-p{background:linear-gradient(135deg,var(--red) 0%,var(--rd) 100%);color:#fff;box-shadow:0 4px 18px var(--rg)}
+.kfaq .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(255,49,49,.45);filter:brightness(1.08)}
+.kfaq .btn-wa{background:linear-gradient(135deg,#25D366,#1aa849);color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.28)}
+.kfaq .btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(37,211,102,.46)}
+.kfaq .btn-s{background:transparent;color:var(--t1);border:1.5px solid var(--t4)}
+.kfaq .btn-s:hover{border-color:var(--bh);background:rgba(255,255,255,.05);transform:translateY(-2px)}
+
+/* ANIMATIONS */
+@keyframes kfpulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.55}}
+@keyframes kfwapulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.kfaq .fu{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.kfaq .fu.vis{opacity:1;transform:translateY(0)}
+.kfaq .d1{transition-delay:.1s}.kfaq .d2{transition-delay:.2s}.kfaq .d3{transition-delay:.3s}
+
+/* HERO */
+.kfaq .hero{position:relative;padding:100px 24px 72px;background:var(--bg);text-align:center;overflow:hidden}
+.kfaq .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 50% at 50% 35%,rgba(2,106,164,.1) 0%,transparent 60%),radial-gradient(ellipse 35% 28% at 80% 70%,rgba(255,49,49,.07) 0%,transparent 55%);pointer-events:none}
+.kfaq .hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.kfaq .hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.kfaq .breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.77rem;color:var(--t3);margin-bottom:16px}
+.kfaq .breadcrumb a{color:var(--t3);transition:color .2s}.kfaq .breadcrumb a:hover{color:var(--red)}
+.kfaq .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,49,49,.08);border:1px solid rgba(255,49,49,.2);border-radius:50px;padding:5px 14px;font-size:.69rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+.kfaq .hero h1{margin-bottom:16px}
+.kfaq .hero-sub{max-width:560px;margin:0 auto 28px;font-size:1.05rem;color:var(--t2)}
+.kfaq .hero-stats{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:32px}
+.kfaq .hstat{display:flex;align-items:center;gap:6px;font-size:.84rem;color:var(--t3)}
+.kfaq .hstat strong{color:var(--t2);font-weight:600}
+
+/* SEARCH BAR */
+.kfaq .search-section{background:var(--c1);border-bottom:1px solid var(--br);padding:24px}
+.kfaq .search-wrap{max-width:var(--mw);margin:0 auto;position:relative}
+.kfaq .search-input{width:100%;padding:14px 20px 14px 50px;background:var(--bg);border:1.5px solid var(--br);border-radius:50px;color:var(--t1);font-size:.95rem;font-family:inherit;outline:none;transition:border-color .22s,box-shadow .22s}
+.kfaq .search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(2,106,164,.12)}
+.kfaq .search-input::placeholder{color:var(--t3)}
+.kfaq .search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--t3);font-size:1.1rem;pointer-events:none}
+.kfaq .search-clear{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--t3);cursor:pointer;font-size:1rem;padding:4px 8px;display:none;font-family:inherit;transition:color .2s}
+.kfaq .search-clear:hover{color:var(--t1)}
+.kfaq .search-count{text-align:center;font-size:.8rem;color:var(--t3);margin-top:10px;display:none}
+.kfaq .no-results{text-align:center;padding:60px 24px;display:none}
+.kfaq .no-results h3{font-size:1.1rem;margin-bottom:8px;color:var(--t2)}
+.kfaq .no-results p{font-size:.88rem;color:var(--t3)}
+
+/* CATEGORY NAV */
+.kfaq .cat-nav{background:var(--bg);border-bottom:1px solid var(--br);padding:0 24px;position:sticky;top:0;z-index:100}
+.kfaq .cat-nav-inner{max-width:var(--mw);margin:0 auto;display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.kfaq .cat-nav-inner::-webkit-scrollbar{display:none}
+.kfaq .cat-btn{display:flex;align-items:center;gap:6px;padding:16px 16px;font-size:.8rem;font-weight:700;color:var(--t3);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all .22s;font-family:inherit;flex-shrink:0}
+.kfaq .cat-btn:hover{color:var(--t1)}
+.kfaq .cat-btn.active{color:var(--red);border-bottom-color:var(--red)}
+.kfaq .cat-btn .cat-num{font-size:.68rem;font-weight:700;background:var(--c1);border:1px solid var(--br);border-radius:50px;padding:2px 7px;color:var(--t3);transition:all .22s}
+.kfaq .cat-btn.active .cat-num{background:var(--rt);border-color:var(--rb);color:var(--red)}
+
+/* FAQ SECTIONS */
+.kfaq .faq-section{padding:64px 24px;background:var(--bg);border-bottom:1px solid var(--br)}
+.kfaq .faq-section:nth-child(even){background:var(--c1)}
+.kfaq .faq-section.hidden{display:none}
+.kfaq .faq-section.search-hidden{display:none}
+.kfaq .sec-hdr{display:flex;align-items:flex-start;gap:16px;margin-bottom:36px}
+.kfaq .sec-icon{width:52px;height:52px;min-width:52px;background:var(--bg-blue);border:1px solid var(--bb);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.kfaq .faq-section:nth-child(even) .sec-icon{background:var(--rt);border-color:var(--rb)}
+.kfaq .sec-text h2{font-size:clamp(1.2rem,2.8vw,1.6rem);margin-bottom:4px}
+.kfaq .sec-text p{font-size:.88rem;color:var(--t3);margin:0}
+.kfaq .sec-count{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;color:var(--blue);background:var(--bg-blue);border:1px solid var(--bb);border-radius:50px;padding:2px 10px;margin-top:6px}
+.kfaq .faq-section:nth-child(even) .sec-count{color:var(--red);background:var(--rt);border-color:var(--rb)}
+
+/* ACCORDION */
+.kfaq .acc-list{display:flex;flex-direction:column;gap:8px;max-width:860px}
+.kfaq .acc-item{border:1px solid var(--br);border-radius:var(--r);overflow:hidden;transition:border-color .25s}
+.kfaq .acc-item.open{border-color:var(--rb)}
+.kfaq .acc-item.search-hidden{display:none}
+.kfaq .acc-q{width:100%;background:var(--c2);border:none;padding:17px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;text-align:left;color:var(--t1);font-size:.9rem;font-weight:600;transition:background .2s;font-family:inherit;line-height:1.4}
+.kfaq .acc-item.open .acc-q,.kfaq .acc-q:hover{background:var(--bg)}
+.kfaq .faq-section:nth-child(even) .acc-item{background:var(--bg)}
+.kfaq .faq-section:nth-child(even) .acc-q{background:var(--c1)}
+.kfaq .faq-section:nth-child(even) .acc-item.open .acc-q,.kfaq .faq-section:nth-child(even) .acc-q:hover{background:var(--c2)}
+.kfaq .qi{width:22px;height:22px;min-width:22px;border-radius:50%;background:var(--bg);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:.9rem;font-weight:700;color:var(--t3);line-height:1;flex-shrink:0}
+.kfaq .acc-item.open .qi{background:var(--red);border-color:var(--red);color:#fff;transform:rotate(45deg)}
+.kfaq .acc-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.kfaq .acc-a-inner{padding:0 20px 18px;font-size:.88rem;color:var(--t2);line-height:1.78}
+.kfaq .acc-a-inner p{margin-bottom:10px}
+.kfaq .acc-a-inner p:last-child{margin-bottom:0}
+.kfaq .acc-a-inner ul{list-style:none;padding:0;margin:8px 0}
+.kfaq .acc-a-inner ul li{padding:4px 0;color:var(--t2);display:flex;align-items:flex-start;gap:8px;font-size:.87rem;border-bottom:1px solid var(--br)}
+.kfaq .acc-a-inner ul li:last-child{border-bottom:none}
+.kfaq .acc-a-inner ul li::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;font-size:.8rem;margin-top:2px}
+.kfaq .acc-a-inner .tip{background:rgba(245,158,11,.07);border-left:3px solid var(--gld);border-radius:0 var(--r) var(--r) 0;padding:10px 14px;margin-top:10px;font-size:.85rem}
+.kfaq .acc-a-inner .tip strong{color:var(--gld)}
+.kfaq .acc-a-inner ol{list-style:none;counter-reset:steps;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:6px}
+.kfaq .acc-a-inner ol li{counter-increment:steps;padding:8px 12px 8px 42px;background:var(--c2);border-radius:var(--r);font-size:.86rem;color:var(--t2);position:relative}
+.kfaq .acc-a-inner ol li::before{content:counter(steps);position:absolute;left:12px;top:50%;transform:translateY(-50%);width:22px;height:22px;background:var(--blue);border-radius:50%;color:#fff;font-size:.74rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.kfaq .acc-item.open .acc-a{max-height:1200px}
+.kfaq .acc-a-inner a{color:var(--blue);font-weight:600}
+.kfaq .acc-a-inner a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* HIGHLIGHT SEARCH MATCHES */
+.kfaq mark{background:rgba(255,49,49,.2);color:var(--red);border-radius:3px;padding:0 2px}
+
+/* CTA */
+.kfaq .cta-sec{padding:88px 24px;background:var(--bg);text-align:center;position:relative;overflow:hidden}
+.kfaq .cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(255,49,49,.07) 0%,transparent 70%);pointer-events:none}
+.kfaq .cta-inner{max-width:560px;margin:0 auto;position:relative;z-index:1}
+.kfaq .cta-badge{display:inline-flex;align-items:center;gap:6px;background:var(--rt);border:1px solid var(--rb);border-radius:50px;padding:5px 14px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.kfaq .cta-sec h2{margin-bottom:10px}
+.kfaq .cta-sec p{color:var(--t2);margin-bottom:26px}
+.kfaq .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.kfaq .cta-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 16px;margin-top:18px}
+.kfaq .cta-trust span{font-size:.79rem;color:var(--t3);display:flex;align-items:center;gap:4px}
+
+/* WA FLOAT */
+.kfaq-wa{position:fixed;right:22px;bottom:90px;z-index:9998}
+.kfaq-wa-btn{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#1aa849);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 22px rgba(37,211,102,.46);text-decoration:none;transition:transform .25s,box-shadow .25s;animation:kfwapulse 2.6s ease-in-out infinite;position:relative}
+.kfaq-wa-btn::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,211,102,.36);animation:kfwapulse 2.6s ease-in-out infinite;pointer-events:none}
+.kfaq-wa-btn:hover{transform:scale(1.1)!important;box-shadow:0 8px 30px rgba(37,211,102,.62);animation:none}
+.kfaq-wa-btn:hover::before{display:none}
+.kfaq-wa-svg{width:28px;height:28px;fill:#fff}
+
+/* STICKY BAR */
+.kfaq-sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,8,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.07);padding:11px 24px;z-index:9990;transform:translateY(100%);transition:transform .4s ease}
+.kfaq-sticky.vis{transform:translateY(0)}
+.kfaq-sticky-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.kfaq-sticky-txt{font-size:.88rem;font-weight:600;color:#fff}
+.kfaq-sticky-txt small{display:block;font-size:.74rem;color:rgba(255,255,255,.4);font-weight:400;margin-top:1px}
+.kfaq-sticky-btns{display:flex;align-items:center;gap:8px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .kfaq .hero{padding:72px 18px 52px}
+  .kfaq .faq-section{padding:48px 18px}
+  .kfaq .search-section{padding:18px}
+  .kfaq .cta-sec{padding:64px 18px}
+  .kfaq .sec-hdr{flex-direction:column;gap:10px}
+  .kfaq .sec-icon{width:44px;height:44px;min-width:44px;font-size:1.2rem}
+  .kfaq-sticky-txt small{display:none}
+}
+@media(max-width:560px){
+  .kfaq .cta-btns{flex-direction:column;align-items:stretch;max-width:280px;margin:0 auto 0}
+  .kfaq .cta-btns .btn{width:100%}
+  .kfaq-wa{right:14px;bottom:80px}
+  .kfaq-wa-btn{width:50px;height:50px}
+  .kfaq-wa-svg{width:24px;height:24px}
+  .kfaq-sticky-inner{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+
+<div class="kfaq" id="kfaq">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb fu">
+      <a href="https://www.kingiptv.se/">King IPTV</a>
+      <span>›</span>
+      <span>FAQ</span>
+    </div>
+    <div class="hero-badge fu">❓ Vanliga frågor · 50 svar</div>
+    <h1 class="fu d1">FAQ — <span class="acc">King IPTV</span> &amp; IPTV Sverige</h1>
+    <p class="hero-sub fu d2">Alla svar om IPTV-abonnemang, installation, kanaler, streaming och support — samlade på ett ställe. Hitta ditt svar på under 30 sekunder.</p>
+    <div class="hero-stats fu d2">
+      <span class="hstat">📋 <strong>50</strong> frågor &amp; svar</span>
+      <span class="hstat">📂 <strong>9</strong> kategorier</span>
+      <span class="hstat">🇸🇪 På <strong>svenska</strong></span>
+      <span class="hstat">⚡ Uppdaterad <strong>2026</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-section">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="faqSearch" type="search" placeholder="Sök bland 50 frågor... t.ex. &quot;installation&quot;, &quot;betalning&quot;, &quot;buffrar&quot;" autocomplete="off" />
+    <button class="search-clear" id="searchClear" type="button" aria-label="Rensa sökning">×</button>
+    <div class="search-count" id="searchCount"></div>
+  </div>
+</div>
+<div class="no-results" id="noResults">
+  <h3>Inga frågor matchar din sökning</h3>
+  <p>Prova ett annat sökord eller kontakta oss via WhatsApp — vi svarar inom 5 minuter.</p>
+</div>
+
+<!-- CATEGORY NAV -->
+<nav class="cat-nav" aria-label="FAQ-kategorier">
+  <div class="cat-nav-inner">
+    <button class="cat-btn active" data-cat="all" type="button">Alla <span class="cat-num">50</span></button>
+    <button class="cat-btn" data-cat="allmant" type="button">Allmänt <span class="cat-num">6</span></button>
+    <button class="cat-btn" data-cat="abonnemang" type="button">Abonnemang <span class="cat-num">6</span></button>
+    <button class="cat-btn" data-cat="betalning" type="button">Betalning <span class="cat-num">5</span></button>
+    <button class="cat-btn" data-cat="installation" type="button">Installation <span class="cat-num">8</span></button>
+    <button class="cat-btn" data-cat="appar" type="button">IPTV-Appar <span class="cat-num">5</span></button>
+    <button class="cat-btn" data-cat="kvalitet" type="button">Kvalitet <span class="cat-num">5</span></button>
+    <button class="cat-btn" data-cat="kanaler" type="button">Kanaler <span class="cat-num">5</span></button>
+    <button class="cat-btn" data-cat="felsok" type="button">Felsökning <span class="cat-num">7</span></button>
+    <button class="cat-btn" data-cat="support" type="button">Support <span class="cat-num">3</span></button>
+  </div>
+</nav>
+
+<!-- ═══ CAT 1: ALLMÄNT OM IPTV ═══ -->
+<section class="faq-section" data-cat="allmant" id="cat-allmant">
+  <div class="con">
+    <div class="sec-hdr fu">
+      <div class="sec-icon">📡</div>
+      <div class="sec-text">
+        <h2>Allmänt om IPTV</h2>
+        <p>Grundläggande frågor om vad IPTV är och hur tekniken fungerar.</p>
+        <span class="sec-count">6 frågor</span>
+      </div>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vad är IPTV och hur skiljer det sig från vanlig TV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p><strong>IPTV (Internet Protocol Television)</strong> är en teknologi som levererar TV-kanaler, filmer och serier direkt via internet — istället för via traditionell kabel, satellit eller marknät. Till skillnad från kabel-TV behöver du ingen parabolantenn, ingen decoder-box och inga dyra installationer.</p>
+          <p>Med ett <strong>King IPTV-abonnemang</strong> i Sverige streamar du 55&nbsp;000+ livekanaler och 215&nbsp;000+ titlar på vilken enhet som helst med internetuppkoppling — Smart TV, Firestick, mobil eller dator — utan bindningstid och till en bråkdel av kabel-TV:s kostnad.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vad är skillnaden mellan IPTV och Netflix eller Viaplay?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Netflix och Viaplay erbjuder on-demand-bibliotek med filmer och serier men saknar <strong>live-TV och live-sport</strong>. IPTV kombinerar allt i ett:</p>
+          <ul>
+            <li>55&nbsp;000+ livekanaler (SVT, TV4, NRK, sport m.fl.)</li>
+            <li>Live-sport: Allsvenskan, SHL, Premier League, Champions League</li>
+            <li>215&nbsp;000+ filmer och serier på begäran (VOD)</li>
+            <li>Real-time nyhetskanaler och barnkanaler</li>
+          </ul>
+          <p>King IPTV ger dig allt för under 100 kr/mån — utan bindningstid.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Behöver jag en speciell box eller extra utrustning?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Nej — King IPTV fungerar på enheter du <strong>redan äger</strong>. Du behöver bara:</p>
+          <ul>
+            <li>En internetansluten enhet (Smart TV, Firestick, telefon, PC, Mac)</li>
+            <li>En IPTV-app (TiviMate, IPTV Smarters Pro — gratis att ladda ner)</li>
+            <li>Din personliga King IPTV M3U-URL (skickas via e-post vid köp)</li>
+          </ul>
+          <p>Ingen tekniker, inga kablar, inga installationskostnader. Du är igång på under 5 minuter.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur fungerar King IPTV tekniskt?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>King IPTV streamas via <strong>dedikerade servrar med antifreeze-teknologi</strong> och ett globalt CDN (Content Delivery Network) med noder nära svenska användare. Så här fungerar det:</p>
+          <ol>
+            <li>Du beställer ett abonnemang och får en personlig M3U-URL via e-post</li>
+            <li>Du anger URL:en i din IPTV-app (TiviMate, IPTV Smarters osv.)</li>
+            <li>Appen hämtar kanalerna direkt från King IPTVs servrar i realtid</li>
+            <li>Adaptiv bitrate-teknologi justerar kvaliteten automatiskt för din uppkoppling</li>
+          </ol>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vad är en M3U-spellista och vad är EPG?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p><strong>M3U-spellista (M3U-URL)</strong> är din personliga nyckel till King IPTV. Det är en fil/URL som innehåller länkarna till alla dina kanaler. Du anger den en gång i din IPTV-app och hela kanalbiblioteket laddas automatiskt.</p>
+          <p><strong>EPG (Electronic Programme Guide)</strong> är den digitala programguiden som visar vad som sänds nu och de kommande 7 dagarna på varje kanal — precis som TV-tablån men direkt i appen. King IPTV-abonnemang inkluderar EPG automatiskt.</p>
+          <p><strong>Catch-up TV</strong> låter dig dessutom spola tillbaka och se program de senaste 7 dagarna på stödda kanaler.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Fungerar King IPTV i hela Sverige och utomlands?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Ja — King IPTV fungerar <strong>globalt</strong> med vilken stabil internetanslutning som helst. I Sverige stöds alla stora leverantörer: Telia, Bahnhof, Bredband2, Comhem, Telenor och alla andra. Ingen VPN krävs.</p>
+          <p>Bor du utomlands och vill se Allsvenskan, SVT eller SHL? King IPTV-abonnemanget fungerar lika bra i Spanien, Norge, USA eller Thailand som i Stockholm. Perfekt för utlandssvenskar.</p>
+          <div class="tip"><strong>💡 Tips:</strong> Du behöver ingen VPN — men om du ändå använder en kan den påverka streamingkvaliteten negativt. Prova alltid utan VPN först.</div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAT 2: ABONNEMANG ═══ -->
+<section class="faq-section" data-cat="abonnemang" id="cat-abonnemang">
+  <div class="con">
+    <div class="sec-hdr fu">
+      <div class="sec-icon">💎</div>
+      <div class="sec-text">
+        <h2>King IPTV Abonnemang</h2>
+        <p>Priser, paket och vad som ingår i ditt King IPTV-abonnemang.</p>
+        <span class="sec-count">6 frågor</span>
+      </div>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vilka IPTV-abonnemang erbjuder King IPTV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>King IPTV erbjuder tre paket — alla med exakt samma premiuminnehåll:</p>
+          <ul>
+            <li><strong>3 månader</strong> — 399 kr totalt (133 kr/mån)</li>
+            <li><strong>6 månader</strong> — 599 kr totalt (100 kr/mån)</li>
+            <li><strong>12 månader</strong> — 799 kr totalt (67 kr/mån — bäst pris)</li>
+          </ul>
+          <p>Alla paket inkluderar 55&nbsp;000+ kanaler, live-sport, 215&nbsp;000+ VOD-titlar och 24/7-support på svenska. Ingen bindningstid.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vad ingår exakt i ett King IPTV-abonnemang Sverige?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Varje King IPTV-abonnemang inkluderar utan extra kostnad:</p>
+          <ul>
+            <li>55&nbsp;000+ livekanaler — svenska, nordiska och internationella i HD &amp; 4K</li>
+            <li>215&nbsp;000+ filmer &amp; serier på begäran (VOD-bibliotek)</li>
+            <li>Live-sport: Allsvenskan, SHL, Premier League, Champions League, F1, UFC m.fl.</li>
+            <li>EPG-programguide 7 dagar framåt</li>
+            <li>Catch-up TV de senaste 7 dagarna</li>
+            <li>M3U, MAG och Enigma-stöd (alla format)</li>
+            <li>24/7 kundtjänst på svenska via WhatsApp</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Är det gratis att testa King IPTV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Ja — vi erbjuder ett <strong>gratis test</strong> för nya kunder med full tillgång till alla 55&nbsp;000+ kanaler, live-sport och hela VOD-biblioteket. Inga kreditkortsuppgifter krävs och det sker ingen automatisk debitering. Bestämmer du dig för att avsluta betalar du ingenting.</p>
+          <p>Kontakta oss via WhatsApp för att aktivera ditt gratis test — vi svarar normalt inom 5 minuter och aktiverar direkt.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Finns det bindningstid för King IPTV-abonnemanget?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Nej — <strong>inga bindningstider på något av våra IPTV-abonnemang</strong>. Du betalar för vald period (3, 6 eller 12 månader) och åtkomsten avslutas automatiskt utan automatisk förnyelse eller oväntade debiteringar när perioden löper ut.</p>
+          <p>Vill du förnya? Kontakta oss via WhatsApp. Vill du inte förnya? Inga åtgärder behövs — prenumerationen avslutas av sig självt.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur många enheter kan använda mitt IPTV-abonnemang?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Du kan installera King IPTV på <strong>alla dina enheter</strong> (Smart TV, mobil, surfplatta, dator, Firestick osv.) med samma M3U-URL. Standardabonnemanget stöder <strong>upp till 3 simultana streams</strong> — tre familjemedlemmar kan titta på olika kanaler på samma gång.</p>
+          <p>Behöver du fler simultana anslutningar för ett större hushåll? Kontakta vår support via WhatsApp så hittar vi en lösning som passar dig.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vad är King IPTVs drifttidsgaranti?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>King IPTV garanterar <strong>99.9% drifttid</strong> — det motsvarar maximalt 8,7 timmars total driftstopp per år. Vår infrastruktur inkluderar:</p>
+          <ul>
+            <li>Antifreeze-servrar med redundant kapacitet</li>
+            <li>Global CDN med noder nära svenska användare</li>
+            <li>DDoS-skydd och automatisk failover</li>
+            <li>Adaptiv bitrate för stabil streaming vid nätverksvariation</li>
+          </ul>
+          <p>Vid sällsynta avbrott kompenseras drabbade kunder med förlängd prenumerationstid.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAT 3: BETALNING & AKTIVERING ═══ -->
+<section class="faq-section" data-cat="betalning" id="cat-betalning">
+  <div class="con">
+    <div class="sec-hdr fu">
+      <div class="sec-icon">💳</div>
+      <div class="sec-text">
+        <h2>Betalning &amp; Aktivering</h2>
+        <p>Allt om betalsätt, aktivering och fakturering.</p>
+        <span class="sec-count">5 frågor</span>
+      </div>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vilka betalningsmetoder accepteras?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>King IPTV accepterar följande betalningsmetoder:</p>
+          <ul>
+            <li><strong>Kreditkort / betalkort</strong> — Visa och Mastercard</li>
+            <li><strong>PayPal</strong> — med PayPal-köparskydd</li>
+            <li><strong>Kryptovalutor</strong> — Bitcoin, Ethereum och USDT</li>
+          </ul>
+          <p>Alla transaktioner är <strong>SSL 256-bit krypterade</strong> och GDPR-kompatibla. Din finansiella information lagras aldrig hos King IPTV — den hanteras direkt av din bank eller betalningsleverantör.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur snabbt aktiveras mitt King IPTV-abonnemang?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Aktivering sker <strong>automatiskt direkt efter betalning</strong>. Din personliga M3U-spellista och inloggningsuppgifter skickas via e-post inom <strong>1–5 minuter</strong>. Inga väntetider, ingen manuell granskning — du kan börja streama 55&nbsp;000+ kanaler inom 5 minuter från betalning.</p>
+          <div class="tip"><strong>💡 Obs:</strong> Hittar du inte e-postmeddelandet? Kontrollera skräpkorgen och spam-mappen. Saknas det fortfarande efter 10 minuter? Kontakta support via WhatsApp med ditt bekräftelsenummer.</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Finns det automatisk förnyelse av IPTV-abonnemanget?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Nej — King IPTV har <strong>ingen automatisk förnyelse</strong>. Din åtkomst avslutas automatiskt och smidigt när prenumerationsperioden löper ut. Du väljer själv när och om du vill förnya.</p>
+          <p>Vill du förnya? Kontakta vår support via WhatsApp innan perioden löper ut. Vi förlänger åtkomsten direkt utan avbrott i streamingtjänsten.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Kan jag uppgradera till ett längre IPTV-paket?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Ja — du kan uppgradera till ett längre paket när som helst under din pågående prenumeration. Kontakta vår support via WhatsApp och ange vilket paket du vill byta till. Vi anpassar din åtkomst och fakturerar proraterat för kvarstående tid.</p>
+          <p>Exempel: Om du har 1 månad kvar på ett 3-månaders-paket och vill uppgradera till 12 månader — betalar du 12-månaders-priset och får full ny period från idag.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Erbjuder King IPTV återbetalning?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Kontakta vår support via WhatsApp om du är missnöjd med tjänsten. Vi behandlar varje ärende individuellt och strävar alltid efter att hitta en lösning som passar dig — oavsett om det handlar om gratis felsökning, kontoförlängning eller byte av paket.</p>
+          <p>Vi rekommenderar alltid att utnyttja det <strong>kostnadsfria testperioden</strong> innan köp för att försäkra dig om att King IPTV uppfyller dina förväntningar.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAT 4: INSTALLATION & ENHETER ═══ -->
+<section class="faq-section" data-cat="installation" id="cat-installation">
+  <div class="con">
+    <div class="sec-hdr fu">
+      <div class="sec-icon">📲</div>
+      <div class="sec-text">
+        <h2>Installation &amp; Enheter</h2>
+        <p>Steg-för-steg-guider för alla populära enheter.</p>
+        <span class="sec-count">8 frågor</span>
+      </div>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vilka enheter är kompatibla med King IPTV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>King IPTV är kompatibelt med praktiskt taget alla moderna enheter:</p>
+          <ul>
+            <li><strong>Smart TV</strong>: Samsung, LG, Sony, Hisense (via SS IPTV, Smart IPTV)</li>
+            <li><strong>Streaming-enheter</strong>: Amazon Firestick, Fire TV Cube, NVIDIA Shield</li>
+            <li><strong>Boxar</strong>: MAG, Formuler, Android TV-boxar</li>
+            <li><strong>Mobil &amp; surfplatta</strong>: iPhone, iPad, Android-enheter</li>
+            <li><strong>Dator</strong>: Windows PC och Mac (via VLC eller IPTV Smarters)</li>
+            <li><strong>Google TV</strong>: Chromecast med Google TV</li>
+            <li><strong>Apple TV</strong>: Via IPTVX-appen</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur installerar jag King IPTV på Samsung Smart TV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <ol>
+            <li>Tryck på Home-knappen (⌂) och öppna Smart Hub</li>
+            <li>Gå till <strong>Appar</strong> och sök efter <strong>"Smart IPTV"</strong></li>
+            <li>Installera Smart IPTV (gratis) och öppna appen</li>
+            <li>Notera <strong>MAC-adressen</strong> som visas på skärmen</li>
+            <li>Gå till <strong>smatv.co.uk/meu</strong> på dator/telefon, ange MAC + din King IPTV M3U-URL</li>
+            <li>Ladda om appen på TV:n — klart!</li>
+          </ol>
+          <div class="tip"><strong>💡 Alternativ:</strong> Använd <strong>SS IPTV</strong> för en enklare process utan MAC-aktivering — ange M3U-URL direkt i appen.</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur installerar jag King IPTV på Amazon Firestick?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <ol>
+            <li>Öppna Amazon Appstore (sökikonen på hemskärmen)</li>
+            <li>Sök efter <strong>"TiviMate"</strong> och installera (gratis)</li>
+            <li>Öppna TiviMate och tryck <strong>"Lägg till spellista"</strong></li>
+            <li>Välj <strong>"M3U spellista"</strong></li>
+            <li>Klistra in din King IPTV M3U-URL</li>
+            <li>Ange namn "King IPTV" och tryck <strong>"Klar"</strong></li>
+          </ol>
+          <div class="tip"><strong>💡 Bästa setup:</strong> Firestick 4K Max + TiviMate + Ethernet-adapter = optimal IPTV-upplevelse för live-sport.</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur installerar jag King IPTV på LG Smart TV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <ol>
+            <li>Tryck på Home-knappen och öppna <strong>LG Content Store</strong></li>
+            <li>Sök efter <strong>"SS IPTV"</strong> och installera (gratis)</li>
+            <li>Öppna SS IPTV → <strong>Inställningar → Spellista → Lägg till</strong></li>
+            <li>Välj <strong>"Länk (M3U)"</strong></li>
+            <li>Klistra in din King IPTV M3U-URL och tryck OK</li>
+            <li>Kanallistan laddas automatiskt — klart!</li>
+          </ol>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur installerar jag King IPTV på iPhone eller iPad?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <ol>
+            <li>Öppna <strong>App Store</strong> och sök efter <strong>"IPTVX"</strong></li>
+            <li>Ladda ner och installera IPTVX</li>
+            <li>Öppna appen och tryck på <strong>"+"</strong> (plus-ikonen)</li>
+            <li>Välj <strong>"M3U URL"</strong></li>
+            <li>Klistra in din King IPTV M3U-URL och tryck <strong>"Spara"</strong></li>
+            <li>Alla kanaler laddas — börja streama!</li>
+          </ol>
+          <div class="tip"><strong>💡 AirPlay-tips:</strong> Streama från din iPhone till Apple TV eller AirPlay-TV med ett tryck. Perfekt för sport på storskärm.</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur installerar jag King IPTV på Android-telefon eller surfplatta?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <ol>
+            <li>Öppna <strong>Google Play Store</strong> och sök <strong>"IPTV Smarters Pro"</strong></li>
+            <li>Installera appen (gratis)</li>
+            <li>Öppna → tryck <strong>"Lägg till ny användare"</strong></li>
+            <li>Välj <strong>"Ladda spellista via M3U URL"</strong></li>
+            <li>Ange namn: King IPTV och klistra in din URL</li>
+            <li>Tryck <strong>"Lägg till användare"</strong> — klart!</li>
+          </ol>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur installerar jag King IPTV på Windows PC eller Mac?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p><strong>Windows PC — alternativ A (VLC, gratis):</strong></p>
+          <ol>
+            <li>Ladda ner VLC från <strong>videolan.org</strong></li>
+            <li>Öppna VLC → <strong>Medier → Öppna nätverksström (Ctrl+N)</strong></li>
+            <li>Klistra in din King IPTV M3U-URL → Spela</li>
+          </ol>
+          <p><strong>Windows PC — alternativ B:</strong> Sök "IPTV Smarters Pro" i Microsoft Store.</p>
+          <p><strong>Mac:</strong> Ladda ner <strong>IINA</strong> (iina.io) eller VLC → Öppna URL → klistra in M3U-URL.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Behöver jag en VPN för att använda King IPTV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Nej — King IPTV fungerar <strong>utan VPN</strong> direkt med din svenska internetanslutning. Du behöver inte konfigurera något extra.</p>
+          <p>En VPN kan faktiskt försämra streamingkvaliteten på grund av extra latens och lägre bandbredd. Om du ändå vill använda en VPN — välj en med snabba servrar och testa alltid utan VPN om du upplever buffring.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAT 5: IPTV-APPAR ═══ -->
+<section class="faq-section" data-cat="appar" id="cat-appar">
+  <div class="con">
+    <div class="sec-hdr fu">
+      <div class="sec-icon">📱</div>
+      <div class="sec-text">
+        <h2>IPTV-Appar</h2>
+        <p>Vilka appar som rekommenderas och hur du väljer rätt för din enhet.</p>
+        <span class="sec-count">5 frågor</span>
+      </div>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vilken IPTV-app rekommenderas för King IPTV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Rekommenderade appar per enhet:</p>
+          <ul>
+            <li><strong>Amazon Firestick / Android TV:</strong> TiviMate (bäst EPG och sport-UI)</li>
+            <li><strong>Samsung Smart TV:</strong> Smart IPTV eller SS IPTV</li>
+            <li><strong>LG Smart TV:</strong> SS IPTV (enklast)</li>
+            <li><strong>iPhone / iPad / Apple TV:</strong> IPTVX</li>
+            <li><strong>Android-telefon / surfplatta:</strong> IPTV Smarters Pro eller TiviMate</li>
+            <li><strong>Windows PC:</strong> VLC (gratis) eller IPTV Smarters PC</li>
+            <li><strong>Mac:</strong> IINA (gratis, vackrast) eller VLC</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vad är TiviMate och varför är det populärt?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>TiviMate är en premium IPTV-spelare för Firestick och Android TV med marknadens bästa EPG-gränssnitt — det ser ut och känns som en riktig elektronisk TV-guide. Populärt bland sportentusiaster för:</p>
+          <ul>
+            <li>Bästa EPG-layout — se sport-schema och byt kanal direkt från guiden</li>
+            <li>Catch-up och inspelningsfunktion (Premium)</li>
+            <li>TiviMate Companion-app för enkel konfigurering via telefon</li>
+            <li>Stabilast vid live-sport med minimal buffring</li>
+          </ul>
+          <div class="tip"><strong>💡 Pris:</strong> TiviMate har en gratis grundversion och premium för ca 25 kr/mån med tilläggsfunktioner.</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur ställer jag in IPTV Smarters Pro med King IPTV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <ol>
+            <li>Installera <strong>IPTV Smarters Pro</strong> från din enhets app store</li>
+            <li>Öppna appen → tryck <strong>"Lägg till ny användare"</strong></li>
+            <li>Välj <strong>"Ladda spellista och EPG via URL"</strong> (INTE Xtream Codes)</li>
+            <li>Namn: King IPTV — M3U URL: klistra in din länk</li>
+            <li>Tryck <strong>"Lägg till användare"</strong></li>
+            <li>Appen laddar kanaler, EPG och VOD automatiskt</li>
+          </ol>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Kostar IPTV-apparna extra pengar?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>De flesta IPTV-appar är gratis att installera och använda:</p>
+          <ul>
+            <li><strong>IPTV Smarters Pro</strong> — helt gratis</li>
+            <li><strong>SS IPTV</strong> — helt gratis</li>
+            <li><strong>VLC / IINA</strong> — helt gratis</li>
+            <li><strong>TiviMate</strong> — gratis grundversion, Premium ~25 kr/mån</li>
+            <li><strong>Smart IPTV</strong> — engångskostnad ca 40 kr</li>
+            <li><strong>IPTVX</strong> — gratis nedladdning, premium-funktioner via köp</li>
+          </ul>
+          <p>Appkostnaden är separat från ditt King IPTV-abonnemang.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Kan jag använda SET IPTV på Samsung Smart TV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <ol>
+            <li>Öppna Samsung Smart Hub → Appar → sök <strong>"SET IPTV"</strong></li>
+            <li>Installera gratis och öppna appen</li>
+            <li>Notera <strong>UID-koden</strong> som visas på skärmen</li>
+            <li>Gå till <strong>set-iptv.com</strong> på dator/telefon</li>
+            <li>Ange UID och klistra in din King IPTV M3U-URL → Spara</li>
+            <li>Uppdatera SET IPTV på TV:n (röd knapp eller meny) — klart!</li>
+          </ol>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAT 6: STREAMING & KVALITET ═══ -->
+<section class="faq-section" data-cat="kvalitet" id="cat-kvalitet">
+  <div class="con">
+    <div class="sec-hdr fu">
+      <div class="sec-icon">🎬</div>
+      <div class="sec-text">
+        <h2>Streaming &amp; Bildkvalitet</h2>
+        <p>HD, 4K, datanförbrukning och nätverkskrav för optimal streaming.</p>
+        <span class="sec-count">5 frågor</span>
+      </div>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vilken streamingkvalitet erbjuder King IPTV? (HD, Full HD, 4K)<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>King IPTV erbjuder streaming i fyra kvalitetsnivåer:</p>
+          <ul>
+            <li><strong>SD (480p)</strong> — Äldre eller internationella kanaler med lägre källkvalitet</li>
+            <li><strong>HD (720p)</strong> — De flesta svenska och nordiska kanaler</li>
+            <li><strong>Full HD (1080p)</strong> — Premiumkanaler, sport och populärt innehåll</li>
+            <li><strong>4K Ultra HD &amp; HDR</strong> — Utvalda sportkanaler (Allsvenskan, Premier League, Champions League), filmer och originaler</li>
+          </ul>
+          <p>Majoriteten av King IPTVs 55&nbsp;000+ kanaler sänder i HD och Full HD. Din enhet och uppkoppling avgör vilken maxkvalitet du kan strömma.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vilken internethastighet krävs för IPTV-streaming?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Rekommenderade minimihastigheter:</p>
+          <ul>
+            <li><strong>SD-streaming:</strong> 5 Mbps</li>
+            <li><strong>HD (720p):</strong> 10 Mbps</li>
+            <li><strong>Full HD (1080p):</strong> 15 Mbps</li>
+            <li><strong>4K Ultra HD:</strong> 25 Mbps</li>
+            <li><strong>4K + 3 enheter simultant:</strong> 50+ Mbps</li>
+          </ul>
+          <p>De flesta moderna svenska fiber- och bredbandsanslutningar klarar 4K-streaming med god marginal. King IPTVs <strong>antifreeze-teknologi och adaptiva bitrate</strong> säkerställer stabil streaming även vid tillfälliga hastighetsvariationer.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur mycket data förbrukar IPTV-streaming?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Ungefärlig dataförbrukning per timme streaming:</p>
+          <ul>
+            <li><strong>SD (480p):</strong> ~1 GB/h</li>
+            <li><strong>HD (720p):</strong> ~2,5 GB/h</li>
+            <li><strong>Full HD (1080p):</strong> ~4 GB/h</li>
+            <li><strong>4K Ultra HD:</strong> ~15–20 GB/h</li>
+          </ul>
+          <p>Vid streaming via WiFi hemma är dataförbrukning sällan ett problem. Streamar du via mobilnätet (4G/5G) — kontrollera din datamängd vid 4K-streaming.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vad är antifreeze-teknologi och vad gör den?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>King IPTVs <strong>antifreeze-teknologi</strong> är vår serverarkitektur som eliminerar buffring och frysningar. Systemet inkluderar:</p>
+          <ul>
+            <li>Redundanta servrar — om en server sjunker tar en annan automatiskt över</li>
+            <li>Global CDN — ditt innehåll levereras från den server som är närmast dig geografiskt</li>
+            <li>DDoS-skydd — skyddar mot attacker som kan störa streaming</li>
+            <li>Adaptiv bitrate — justerar automatiskt kvaliteten vid nätverksvariation</li>
+          </ul>
+          <p>Resultatet: stabil 4K-streaming även under de mest intensiva Premier League-matcherna med miljoner simultana tittare.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Är det fördröjning i IPTV jämfört med vanlig TV?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>IPTV-streaming har normalt <strong>5–15 sekunders fördröjning</strong> jämfört med direktsänd satellit-TV. Med King IPTV och en optimerad setup (TiviMate + Ethernet-kabel + Firestick 4K Max) kan fördröjningen minimeras till under 5 sekunder.</p>
+          <p>Praktisk konsekvens: Du ser målet strax efter det inträffade — grannens jubel via fönstret kan komma lite före. För sport spelar det liten roll för upplevelsen i övrigt.</p>
+          <div class="tip"><strong>💡 Tips:</strong> WiFi ökar fördröjningen. Använd Ethernet-kabel för lägst möjlig latens vid live-sport.</div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAT 7: KANALER & INNEHÅLL ═══ -->
+<section class="faq-section" data-cat="kanaler" id="cat-kanaler">
+  <div class="con">
+    <div class="sec-hdr fu">
+      <div class="sec-icon">📺</div>
+      <div class="sec-text">
+        <h2>Kanaler &amp; Innehåll</h2>
+        <p>Vilka kanaler, sport och VOD-innehåll som ingår i abonnemanget.</p>
+        <span class="sec-count">5 frågor</span>
+      </div>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Vilka svenska kanaler ingår i King IPTV-abonnemanget?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Alla stora svenska kanaler ingår i King IPTV:</p>
+          <ul>
+            <li>SVT1, SVT2, SVT24, Barnkanalen och regionala SVT-kanaler</li>
+            <li>TV4, Kanal 5, TV3, TV6, TV8 och TV4 Film</li>
+            <li>Nordiska kanaler: NRK1, NRK2 (Norge), DR1, DR2 (Danmark), Yle TV1, Yle TV2 (Finland), RÚV (Island)</li>
+            <li>Eurosport, Discovery Channel och internationella nyhetskanaler</li>
+          </ul>
+          <p>Alla kanaler inkluderar EPG-data och Catch-up-funktion för relevanta kanaler.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Ingår Allsvenskan, SHL och Premier League?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Ja — all live-sport ingår i alla King IPTV-abonnemang utan extra kostnad:</p>
+          <ul>
+            <li>🇸🇪 <strong>Allsvenskan</strong> och Superettan (C More Sport, V Sport)</li>
+            <li>🏒 <strong>SHL</strong> — Svensk Hockey Liga (C More Sport)</li>
+            <li>🏆 <strong>Premier League, Champions League, La Liga, Bundesliga</strong></li>
+            <li>🇳🇴 Eliteserien (Norge) och Superliga (Danmark)</li>
+            <li>🏎️ <strong>Formel 1</strong> — alla GP-helger</li>
+            <li>🥊 <strong>UFC, boxning och PPV-sport</strong></li>
+            <li>🏀 NBA, 🏒 NHL, 🎾 Grand Slam-tennis</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur stort är King IPTVs VOD-bibliotek?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>King IPTV erbjuder <strong>215&nbsp;000+ titlar på begäran</strong> — ett av marknadens största VOD-bibliotek för IPTV i Sverige. Biblioteket inkluderar:</p>
+          <ul>
+            <li>Hollywood-blockbusters och internationella filmer</li>
+            <li>HBO-originaler, Netflix-produktioner och Amazon Prime-innehåll</li>
+            <li>Bollywood och sydeuropeisk film</li>
+            <li>Dokumentärer, barnfilmer och klassiker</li>
+            <li>Serier från HBO, Disney+, Viaplay och fler</li>
+          </ul>
+          <p>Nytt innehåll läggs till varje vecka.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Kan jag se internationella kanaler på arabiska, turkiska eller persiska?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Ja — King IPTV erbjuder kanaler på <strong>50+ språk</strong>. Det inkluderar:</p>
+          <ul>
+            <li>Arabiska: Al Jazeera, MBC, beIN Sports, Al Arabiya</li>
+            <li>Turkiska: TRT1, TRT Spor, Kanal D, Show TV</li>
+            <li>Persiska: BBC Persian, VOA Persian, Manoto</li>
+            <li>Polska, ryska, franska, spanska och fler</li>
+          </ul>
+          <p>Perfekt för expater och flerspråkiga hushåll som vill se hemlandets kanaler tillsammans med svenska favorites.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Uppdateras kanalutbudet — tillkommer nya kanaler?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Ja — King IPTVs kanalutbud uppdateras <strong>kontinuerligt</strong>. Vi lägger till nya kanaler regelbundet och tar bort kanaler som permanent slutar sända. Som abonnent får du alltid tillgång till det senaste kanalutbudet utan extra kostnad.</p>
+          <p>Uppdatera din spellista regelbundet i IPTV-appen för att se de senaste tilläggen. I TiviMate: Inställningar → Spellistor → Uppdatera.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAT 8: FELSÖKNING ═══ -->
+<section class="faq-section" data-cat="felsok" id="cat-felsok">
+  <div class="con">
+    <div class="sec-hdr fu">
+      <div class="sec-icon">🔧</div>
+      <div class="sec-text">
+        <h2>Felsökning</h2>
+        <p>Lösningar på de vanligaste problemen med IPTV-streaming.</p>
+        <span class="sec-count">7 frågor</span>
+      </div>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Varför buffrar IPTV-kanalerna och vad gör jag?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Buffring orsakas nästan alltid av internetuppkopplingen — inte av King IPTVs servrar. Prova dessa steg i ordning:</p>
+          <ol>
+            <li>Kör ett hastighetstest på <strong>speedtest.net</strong> — HD kräver 10 Mbps, 4K kräver 25 Mbps</li>
+            <li>Stäng IPTV-appen helt och öppna igen</li>
+            <li>Starta om din enhet och router</li>
+            <li>Byt från WiFi till <strong>Ethernet-kabel</strong> för stabilare anslutning</li>
+            <li>Rensa appens cache (Inställningar → Appar → din app → Rensa cache)</li>
+          </ol>
+          <p>Kvarstår buffringen? Kontakta vår support via WhatsApp — vi diagnostiserar och löser normalt inom 15 minuter.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">En specifik kanal fungerar inte — vad gör jag?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <ol>
+            <li>Vänta 30–60 sekunder och prova igen — tillfälliga avbrott är vanliga</li>
+            <li>Byt till en annan kanal och gå tillbaka — återstartar strömmen</li>
+            <li>Sök efter kanalen igen i appen — det kan finnas alternativa serverversioner (ex. "SVT1 HD", "SVT1 FHD")</li>
+            <li>Uppdatera spellistan i appen för att hämta senaste kanalserver</li>
+            <li>Kontakta King IPTV-supporten med kanalnamnet — vi löser kanalspecifika problem snabbt</li>
+          </ol>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Min M3U-URL fungerar inte — vad kan orsaka det?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Vanliga orsaker och lösningar:</p>
+          <ul>
+            <li><strong>Fel URL</strong> — Kontrollera att du kopierat hela länken utan mellanslag i början eller slutet</li>
+            <li><strong>Prenumerationen löpt ut</strong> — Kontrollera din prenumerationsperiod och förnya vid behov</li>
+            <li><strong>App-problem</strong> — Ta bort spellistan i appen och lägg till den igen</li>
+            <li><strong>Enhetens DNS</strong> — Prova att byta till Googles DNS (8.8.8.8) i enhetens nätverksinställningar</li>
+          </ul>
+          <p>Fortfarande problem? Kontakta vår support via WhatsApp med ditt kontonummer för omedelbar hjälp.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">IPTV-appen kraschar eller fryser — hur löser jag det?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <ol>
+            <li>Tvinga stäng appen och öppna igen</li>
+            <li>Starta om enheten helt</li>
+            <li>Rensa appens cache och data (Inställningar → Appar)</li>
+            <li>Avinstallera och installera om appen</li>
+            <li>Prova en alternativ IPTV-app — byt exempelvis från TiviMate till IPTV Smarters Pro</li>
+          </ol>
+          <div class="tip"><strong>💡 Firestick-tips:</strong> Rensar du cachen på din Firestick regelbundet (Inställningar → Mina Fire TV → Appar → välj app → Rensa cache) förbättrar det apprestandan avsevärt.</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Kanallistan laddas men kanalerna spelas inte upp — varför?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Om kanallistan visas men uppspelningen misslyckas kan orsaken vara:</p>
+          <ul>
+            <li><strong>Kodek-problem</strong> — Appen kan inte avkoda videoformatet. Lösning: Aktivera "Extern spelare" i appinställningarna och välj VLC som extern spelare</li>
+            <li><strong>Internetproblem</strong> — Uppkopplingen kan vara instabil. Testa med Ethernet</li>
+            <li><strong>Enhetsminne fullt</strong> — Frigör utrymme på enheten</li>
+            <li><strong>Felaktig appmiljö</strong> — Prova en annan IPTV-app</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur uppdaterar jag EPG och kanallistan?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Uppdatera regelbundet för bästa upplevelse och tillgång till nya kanaler:</p>
+          <ul>
+            <li><strong>TiviMate:</strong> Inställningar → Spellistor → välj King IPTV → Uppdatera nu</li>
+            <li><strong>IPTV Smarters:</strong> Välj din profil → Ladda om konton</li>
+            <li><strong>SS IPTV:</strong> Inställningar → Spellista → Uppdatera</li>
+            <li><strong>Smart IPTV:</strong> Ladda om appen eller gå till smatv.co.uk och klicka "Uppdatera"</li>
+          </ul>
+          <p>Vi rekommenderar att uppdatera kanallistan minst en gång i veckan.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Varför ser jag svart skärm istället för en kanal?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Svart skärm orsakas vanligtvis av ett av följande:</p>
+          <ul>
+            <li><strong>Kanalen sänder inte just nu</strong> — Prova vid en annan tidpunkt (exv. sportkanaler är aktiva vid matchstart)</li>
+            <li><strong>Geo-blockering i källan</strong> — Sällsynt men kan förekomma för visst innehåll</li>
+            <li><strong>DRM-skydd</strong> — Visst premiuminnehåll kräver DRM-stöd. Prova att aktivera DRM i appinställningarna</li>
+            <li><strong>Hårdvara-acceleration</strong> — Inaktivera och återaktivera hårdvaru-acceleration i appens videoinställningar</li>
+          </ul>
+          <p>Kontakta support om problemet kvarstår på en specifik kanal.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAT 9: SUPPORT & SÄKERHET ═══ -->
+<section class="faq-section" data-cat="support" id="cat-support">
+  <div class="con">
+    <div class="sec-hdr fu">
+      <div class="sec-icon">🛡️</div>
+      <div class="sec-text">
+        <h2>Support &amp; Säkerhet</h2>
+        <p>Hur du kontaktar oss och hur vi skyddar din data.</p>
+        <span class="sec-count">3 frågor</span>
+      </div>
+    </div>
+    <div class="acc-list">
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur kontaktar jag King IPTV-supporten?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Vår svenska kundtjänst är tillgänglig <strong>dygnet runt, 365 dagar om året</strong> via tre kanaler:</p>
+          <ul>
+            <li><strong>WhatsApp</strong> — Snabbaste alternativet, svar normalt inom 5–15 minuter. Klicka på WhatsApp-knappen på hemsidan.</li>
+            <li><strong>Livechatt</strong> — Via hemsidans chattwidget under kontorstid (vardagar 08–22).</li>
+            <li><strong>E-post</strong> — För icke-brådskande ärenden, svar inom 24 timmar.</li>
+          </ul>
+          <p>Vi kommunicerar alltid på <strong>svenska</strong> och hjälper dig med allt från installation och felsökning till abonnemangsändringar. Inga chatbotar — riktiga människor som faktiskt löser ditt problem.</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hur skyddar King IPTV min personliga data och betalningsinformation?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>King IPTV tar datasäkerhet på allvar och följer GDPR:</p>
+          <ul>
+            <li><strong>SSL 256-bit kryptering</strong> på all kommunikation och betalning</li>
+            <li>Vi samlar in minimal information — enbart e-post för aktivering</li>
+            <li>Kortuppgifter hanteras aldrig direkt av King IPTV — alltid via krypterade betalningsgateways (Visa/Mastercard-nätverk, PayPal)</li>
+            <li>Vi delar aldrig din personliga information med tredje part</li>
+            <li>Du kan begära radering av dina uppgifter när som helst</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-q" aria-expanded="false">Hittar jag inte svaret här — vart vänder jag mig?<span class="qi">+</span></button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>Om du inte hittar svar på din fråga i denna FAQ har du flera alternativ:</p>
+          <ul>
+            <li>Kontakta oss direkt via <strong>WhatsApp</strong> — vi svarar inom 5–15 minuter och hjälper dig med alla frågor</li>
+            <li>Besök vår <a href="https://www.kingiptv.se/tutorial/">Installationsguide</a> för detaljerade steg-för-steg-instruktioner per enhet</li>
+            <li>Besök <a href="https://www.kingiptv.se/iptv-abonnemang/">IPTV Abonnemang-sidan</a> för information om priser och planer</li>
+          </ul>
+          <p>Vi finns alltid här för att hjälpa dig — ingen fråga är för liten.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-inner">
+    <div class="cta-badge fu">👑 Redo att komma igång?</div>
+    <h2 class="fu d1">Beställ <span class="acc">King IPTV</span> och streama direkt</h2>
+    <p class="fu d2">55&nbsp;000+ kanaler, live-sport och 215&nbsp;000+ filmer. Gratis test, ingen bindningstid, aktivering inom 5 minuter.</p>
+    <div class="cta-btns fu d3">
+      <a href="https://api.whatsapp.com/send/?phone=33773175777&text=Hej%20King%20IPTV%21%20Jag%20vill%20best%C3%A4lla%20ett%20abonnemang.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Beställ via WhatsApp
+      </a>
+      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p">Se alla abonnemang</a>
+    </div>
+    <div class="cta-trust fu">
+      <span>✓ Gratis test</span>
+      <span>✓ Ingen bindningstid</span>
+      <span>✓ Aktivering 5 min</span>
+      <span>✓ 24/7 support</span>
+      <span>✓ 55&nbsp;000+ kanaler</span>
+    </div>
+  </div>
+</section>
+
+</div><!-- /kfaq -->
+
+<!-- WA FLOAT -->
+<div class="kfaq-wa" id="kfaqWa">
+  <a href="https://api.whatsapp.com/send/?phone=33773175777&text=Hej%20King%20IPTV%21%20Jag%20vill%20best%C3%A4lla%20ett%20abonnemang.&type=phone_number&app_absent=0"
+     target="_blank" rel="noopener noreferrer"
+     class="kfaq-wa-btn" aria-label="Kontakta King IPTV på WhatsApp">
+    <svg class="kfaq-wa-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- STICKY BAR -->
+<div class="kfaq-sticky" id="kfaqSticky">
+  <div class="kfaq-sticky-inner">
+    <div class="kfaq-sticky-txt">
+      King IPTV FAQ — 50 frågor &amp; svar
+      <small>Hittade du inte ditt svar? Kontakta oss via WhatsApp.</small>
+    </div>
+    <div class="kfaq-sticky-btns">
+      <a href="https://api.whatsapp.com/send/?phone=33773175777&text=Hej%20King%20IPTV%21%20Jag%20vill%20best%C3%A4lla%20ett%20abonnemang.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn btn-wa" style="padding:9px 18px;font-size:.82rem">💬 Support</a>
+      <a href="https://www.kingiptv.se/iptv-abonnemang/" class="btn btn-p" style="padding:9px 18px;font-size:.82rem">Beställ nu</a>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Vad är IPTV och hur skiljer det sig från vanlig TV?","acceptedAnswer":{"@type":"Answer","text":"IPTV (Internet Protocol Television) levererar TV-kanaler via internet utan kabel eller parabol. King IPTV ger 55 000+ kanaler, live-sport och 215 000+ VOD-titlar utan bindningstid från 399 kr."}},
+{"@type":"Question","name":"Vad är skillnaden mellan IPTV och Netflix?","acceptedAnswer":{"@type":"Answer","text":"Netflix och Viaplay saknar live-TV och sport. King IPTV kombinerar 55 000+ livekanaler, live-sport (Allsvenskan, SHL, Premier League) och 215 000+ VOD-titlar i ett abonnemang."}},
+{"@type":"Question","name":"Behöver jag en speciell box för King IPTV?","acceptedAnswer":{"@type":"Answer","text":"Nej — King IPTV fungerar på enheter du redan äger: Smart TV, Firestick, mobil, PC eller Mac. Ingen extra hårdvara krävs."}},
+{"@type":"Question","name":"Fungerar King IPTV utomlands?","acceptedAnswer":{"@type":"Answer","text":"Ja — King IPTV fungerar globalt med vilken stabil internetanslutning som helst. Ingen VPN krävs. Perfekt för utlandssvenskar."}},
+{"@type":"Question","name":"Vilka King IPTV-abonnemang finns?","acceptedAnswer":{"@type":"Answer","text":"Tre paket utan bindningstid: 3 månader (399 kr), 6 månader (599 kr) och 12 månader (799 kr). Alla inkluderar samma fullständiga innehåll."}},
+{"@type":"Question","name":"Är det gratis att testa King IPTV?","acceptedAnswer":{"@type":"Answer","text":"Ja — gratis test utan kreditkortsuppgifter och utan automatisk debitering. Kontakta oss via WhatsApp för att aktivera direkt."}},
+{"@type":"Question","name":"Finns det bindningstid?","acceptedAnswer":{"@type":"Answer","text":"Nej — inga bindningstider. Du betalar för vald period och åtkomsten avslutas automatiskt utan automatisk förnyelse."}},
+{"@type":"Question","name":"Vilka betalningsmetoder accepteras?","acceptedAnswer":{"@type":"Answer","text":"Visa, Mastercard, PayPal och kryptovalutor (Bitcoin, Ethereum, USDT) via SSL 256-bit krypterade och GDPR-kompatibla gateways."}},
+{"@type":"Question","name":"Hur snabbt aktiveras abonnemanget?","acceptedAnswer":{"@type":"Answer","text":"Automatiskt direkt efter betalning. M3U-URL och inloggning skickas via e-post inom 1–5 minuter."}},
+{"@type":"Question","name":"Vilka enheter stöder King IPTV?","acceptedAnswer":{"@type":"Answer","text":"Samsung Smart TV, LG, Firestick, NVIDIA Shield, Apple TV, iPhone, iPad, Android, Windows PC och Mac. Inga extra boxar krävs."}},
+{"@type":"Question","name":"Hur installerar jag King IPTV på Samsung Smart TV?","acceptedAnswer":{"@type":"Answer","text":"Öppna Smart Hub, sök Smart IPTV, installera, notera MAC-adressen och konfigurera via smatv.co.uk med din M3U-URL."}},
+{"@type":"Question","name":"Hur installerar jag King IPTV på Firestick?","acceptedAnswer":{"@type":"Answer","text":"Installera TiviMate från Amazon Appstore, välj Lägg till spellista, välj M3U URL och klistra in din King IPTV-länk."}},
+{"@type":"Question","name":"Behöver jag VPN för King IPTV?","acceptedAnswer":{"@type":"Answer","text":"Nej — King IPTV fungerar utan VPN direkt med din svenska internetanslutning. VPN kan försämra streamingkvaliteten."}},
+{"@type":"Question","name":"Vilken IPTV-app rekommenderas?","acceptedAnswer":{"@type":"Answer","text":"TiviMate för Firestick/Android TV, SS IPTV för LG, Smart IPTV eller SS IPTV för Samsung, IPTVX för iPhone/iPad och VLC för PC/Mac."}},
+{"@type":"Question","name":"Vilken streamingkvalitet erbjuder King IPTV?","acceptedAnswer":{"@type":"Answer","text":"SD (480p), HD (720p), Full HD (1080p) och 4K Ultra HD HDR. Majoriteten av kanalerna sänder i HD och Full HD."}},
+{"@type":"Question","name":"Vilken internethastighet krävs?","acceptedAnswer":{"@type":"Answer","text":"Minst 10 Mbps för HD och 25 Mbps för 4K. King IPTVs antifreeze-teknologi säkerställer stabil streaming vid varierande hastighet."}},
+{"@type":"Question","name":"Vilka svenska kanaler ingår?","acceptedAnswer":{"@type":"Answer","text":"SVT1, SVT2, TV4, Kanal 5, TV3, TV6, SVT24, Barnkanalen och regionala kanaler. Plus NRK, DR och Yle från hela Norden."}},
+{"@type":"Question","name":"Ingår Allsvenskan och SHL?","acceptedAnswer":{"@type":"Answer","text":"Ja — Allsvenskan, SHL, Premier League, Champions League, La Liga, UFC, F1 och mer ingår utan extra kostnad."}},
+{"@type":"Question","name":"Vad gör jag om kanaler buffrar?","acceptedAnswer":{"@type":"Answer","text":"Kontrollera internethastigheten, starta om appen, byt till Ethernet och rensa cache. Kontakta support om problemet kvarstår."}},
+{"@type":"Question","name":"Hur kontaktar jag King IPTV-supporten?","acceptedAnswer":{"@type":"Answer","text":"Via WhatsApp (svar inom 5–15 min), livechatt eller e-post. 24/7 support på svenska av riktiga människor — ingen chatbot."}}
+]}
+</script>
+
+<script>
+(function(){
+  var kfaq = document.getElementById('kfaq');
+  if(!kfaq) return;
+
+  /* ── Fade-up ── */
+  var io = new IntersectionObserver(function(e){
+    e.forEach(function(n){if(n.isIntersecting){n.target.classList.add('vis');io.unobserve(n.target);}});
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  kfaq.querySelectorAll('.fu').forEach(function(el){io.observe(el);});
+
+  /* ── Accordion ── */
+  kfaq.querySelectorAll('.acc-item').forEach(function(item){
+    var btn = item.querySelector('.acc-q');
+    btn.addEventListener('click',function(){
+      var open = item.classList.contains('open');
+      // Close all in same section
+      var section = item.closest('.acc-list');
+      if(section) section.querySelectorAll('.acc-item').forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.acc-q').setAttribute('aria-expanded','false');
+      });
+      if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+
+  /* ── Category filter ── */
+  var catBtns = document.querySelectorAll('.cat-btn');
+  var sections = document.querySelectorAll('.faq-section');
+  catBtns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      catBtns.forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var cat = btn.dataset.cat;
+      sections.forEach(function(sec){
+        if(cat === 'all' || sec.dataset.cat === cat){
+          sec.classList.remove('hidden');
+        } else {
+          sec.classList.add('hidden');
+        }
+      });
+      // Smooth scroll to first visible section
+      if(cat !== 'all'){
+        var target = document.getElementById('cat-'+cat);
+        if(target) setTimeout(function(){target.scrollIntoView({behavior:'smooth',block:'start'});},50);
+      }
+    });
+  });
+
+  /* ── Search ── */
+  var searchInput = document.getElementById('faqSearch');
+  var searchClear = document.getElementById('searchClear');
+  var searchCount = document.getElementById('searchCount');
+  var noResults = document.getElementById('noResults');
+
+  function doSearch(q){
+    q = q.toLowerCase().trim();
+    var total = 0, shown = 0;
+    searchClear.style.display = q ? 'block' : 'none';
+
+    sections.forEach(function(sec){
+      var sectionVisible = false;
+      sec.querySelectorAll('.acc-item').forEach(function(item){
+        total++;
+        var text = item.textContent.toLowerCase();
+        if(!q || text.includes(q)){
+          item.classList.remove('search-hidden');
+          sectionVisible = true;
+          shown++;
+        } else {
+          item.classList.add('search-hidden');
+        }
+      });
+      if(!q || sectionVisible){
+        sec.classList.remove('search-hidden');
+      } else {
+        sec.classList.add('search-hidden');
+      }
+    });
+
+    if(q){
+      searchCount.style.display = 'block';
+      searchCount.textContent = shown + ' av ' + total + ' frågor matchar "' + q + '"';
+      noResults.style.display = shown === 0 ? 'block' : 'none';
+      // Reset cat filter to "all"
+      catBtns.forEach(function(b){b.classList.remove('active');});
+      document.querySelector('[data-cat="all"]').classList.add('active');
+    } else {
+      searchCount.style.display = 'none';
+      noResults.style.display = 'none';
+      // Restore cat filter state
+      sections.forEach(function(s){s.classList.remove('search-hidden');});
+    }
+  }
+
+  if(searchInput){
+    var debounce;
+    searchInput.addEventListener('input',function(){
+      clearTimeout(debounce);
+      debounce = setTimeout(function(){doSearch(searchInput.value);},180);
+    });
+    searchInput.addEventListener('search',function(){doSearch(searchInput.value);});
+  }
+  if(searchClear){
+    searchClear.addEventListener('click',function(){
+      searchInput.value = '';
+      doSearch('');
+      searchInput.focus();
+    });
+  }
+
+  /* ── Sticky bar ── */
+  var sticky = document.getElementById('kfaqSticky');
+  var tick = false;
+  window.addEventListener('scroll',function(){
+    if(!tick){requestAnimationFrame(function(){
+      sticky.classList[window.scrollY>500?'add':'remove']('vis');
+      tick=false;
+    });tick=true;}
+  },{passive:true});
+
+  /* ── Move fixed elements to body (Elementor escape) ── */
+  ['kfaqWa','kfaqSticky'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && el.parentNode !== document.body) document.body.appendChild(el);
+  });
+
+})();
+</script>
